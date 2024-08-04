@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- <div class="hero-about site-heading text-center">
+    <h4 class="mt-4">Contact Us</h4>
+    <h2>We are more than Happy to hear <span>From You</span></h2>
+</div> -->
+
+<div class="hero-about">
+    <div class="overlay d-flex flex-column justify-content-center align-items-center text-center">
+        <!-- <h1 class="text-white mb-4">About Us</h1> -->
+        <div class="site-heading text-center">
+            <h1 class="mt-4 text-white">Contact Us</h1>
+            <h3 class="text-white">We Are More Than Happy To Hear <span>From You</span></h3>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class=" col-md-6 card mx-auto shadow-sm" style="max-width: 600px;">
+            <div class="card-body">
+                {% if success %}
+                <div class="alert alert-success" role="alert">
+                    Your message has been sent successfully!
+                </div>
+                {% endif %}
+
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group mb-3">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="phone">Phone Number</label>
+                        <input type="text" class="form-control" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="message">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="image-container">
+                <img src="{% static 'images/Swahili_Dish.jpg' %}" alt="">
+                <div class="image-text">Your Satisfaction is Our Joy</div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<style>
+    .site-heading h3 {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .site-heading h3 span {
+        color: #FA6402;
+    }
+</style>
+{% endblock %}

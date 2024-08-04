@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catering Company</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="d-flex flex-column align-items-center navbar-brand" href="{% url 'home' %}">
+            <img src="{% static 'images/logo.png' %}" alt="Company Logo" class="logo ">
+            <span class="text-white">Delicious Tumaini Caterers</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link text-white {% if request.path == '/' %}active{% endif %}"
+                        href="{% url 'home' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white {% if request.path == '/about/' %}active{% endif %}"
+                        href="{% url 'about' %}">About</a></li>
+                <li class="nav-item"><a
+                        class="nav-link text-white {% if request.path == '/services/' %}active{% endif %}"
+                        href="{% url 'services' %}">Services</a></li>
+                <li class="nav-item"><a
+                        class="nav-link text-white {% if request.path == '/sample_menus/' %}active{% endif %}"
+                        href="{% url 'sample_menus' %}">Menus</a>
+                </li>
+                <li class="nav-item"><a
+                        class="nav-link text-white {% if request.path == '/gallery/' %}active{% endif %}"
+                        href="{% url 'gallery' %}">Gallery</a></li>
+                <li class="nav-item"><a
+                        class="nav-link text-white {% if request.path == '/contact/' %}active{% endif %}"
+                        href="{% url 'contact' %}">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link text-white {% if request.path == '/terms/' %}active{% endif %}"
+                        href="{% url 'terms' %}">Terms and Conditions</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class=".container-fluid">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <div id="top-button" class="top-button">Top</div>
+    <div class="side-button" id="side-button">
+
+        <button class="make-vertical">
+            <a href="{% url 'contact' %}">Contact Us</a>
+
+        </button>
+
+    </div>
+
+
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <h6>About</h6>
+                    <p class="text-justify">Delicious Tumaini Caterers (DTC) is a premier catering service offering
+                        exceptional culinary experiences for a wide range of events. Our team specializes in creating
+                        exquisite menus for corporate events, social gatherings, and special occasions, ensuring a
+                        delightful experience for all guests.</p>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <h6>Categories</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Corporate Catering</a></li>
+                        <li><a href="#">Social Events</a></li>
+                        <li><a href="#">Weddings</a></li>
+                        <li><a href="#">Company Canteen Management</a></li>
+                        <li><a href="#">Custom Menus</a></li>
+                        <li><a href="#">Specialty Cuisine</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <h6>Quick Links</h6>
+                    <ul class="footer-links">
+                        <li><a href="{% url 'about' %}">About Us</a></li>
+                        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                        <li><a href="{% url 'about' %}#our_vision" class="">Our Vision</a></li>
+                        <li><a href="{% url 'about' %}#our_values" class="">Our Values</a></li>
+                        <li><a href="{% url 'services' %}">Services</a></li>
+                        <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                        <li><a href="{% url 'sample_menus' %}">Menu</a></li>
+                        <li><a href="{% url 'terms' %}">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <p class="copyright-text">Copyright © 2024 All Rights Reserved by
+                        <a href="#">Delicious Tumaini Caterers (DTC)</a>.
+                    </p>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <ul class="social-icons">
+                        <li><a class="facebook" href="#"><i class="fa-facebook-square"></i></a></li>
+                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 50,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                slideTransition: 'linear',
+                autoplaySpeed: 5000,
+                autoplayHoverPause: false,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: false
+                    },
+                    600: {
+                        items: 3,
+                        nav: false
+                    },
+                    1000: {
+                        items: 3,
+                        nav: true
+                    }
+                }
+            });
+
+            document.getElementsByClassName('owl-prev')[0].innerHTML = '<i class="fas fa-4x fa-caret-left"></i>';
+            document.getElementsByClassName('owl-next')[0].innerHTML = '<i class="fas fa-4x fa-caret-right"></i>';
+        });
+
+    </script>
+    <script>
+        // Function to show or hide the button based on scroll position
+        window.onscroll = function () {
+            const topButton = document.getElementById("top-button");
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                topButton.style.display = "block";
+            } else {
+                topButton.style.display = "none";
+            }
+        };
+
+        // Function to scroll to the top of the page when the button is clicked
+        document.getElementById("top-button").onclick = function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+    </script>
+
+    <style>
+        /* Style for the floating "Top" button */
+        .top-button {
+            position: fixed;
+            bottom: 40px;
+            /* Distance from the bottom of the page */
+            right: 2px;
+            /* Distance from the right side of the page */
+            display: none;
+            padding: 10px 12px;
+            background-color: #db9909;
+            /* Bootstrap primary color */
+            color: white;
+            border-radius: 5px;
+            border-color: rgb(240, 248, 248);
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 1000;
+            /* Ensure it appears above other elements */
+        }
+
+        .top-button:hover {
+            background-color: wheat;
+            color: #FA6402;
+        }
+
+        .side-button {
+            position: fixed;
+            bottom: 20%;
+            right: -25px;
+            height: auto;
+            width: auto;
+            cursor: pointer;
+            z-index: 1001;
+            font-weight: bold;
+
+        }
+
+        .side-button .make-vertical {
+            transform: rotate(270deg);
+            padding: 10px 10px;
+            background-color: #db9909;
+            border-radius: 5px;
+            border-color: #efe3e5;
+            border-width: 2px;
+            text-decoration: none;
+        }
+
+        .make-vertical a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</body>
+
+</html>

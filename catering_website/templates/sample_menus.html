@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .zoom-hover {
+        transition: transform 0.3s ease;
+    }
+
+    .zoom-hover:hover {
+        transform: scale(1.4);
+    }
+</style>
+<!-- Hero Section -->
+<div class="hero-about">
+    <div class="overlay d-flex flex-column justify-content-center align-items-center text-center">
+        <h1 class="text-white mb-4">Our Menu Items</h1>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-6">
+            <ul class="list-group shadow">
+                {% for item in menu_items %}
+                <li class="list-group-item">{{ item.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                {% for item in menu_items %}
+                {% if item.image %}
+                <div class="col-md-4 mb-4">
+                    <img src="{{ item.image.url }}" alt="{{ item.name }}"
+                        class="img-fluid rounded-circle zoom-hover shadow p-1 mb-1 bg-body"
+                        style="width: 13vh; height: 13vh; object-fit: cover;">
+                    <p class="text-center">{{ item.name }}</p>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

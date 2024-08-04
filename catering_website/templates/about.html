@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Hero Section -->
+<div class="hero-about">
+    <div class="overlay d-flex flex-column justify-content-center align-items-center text-center">
+        <h1 class="text-white mb-4">About Us</h1>
+    </div>
+</div>
+
+<!-- <!who we are -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="pt-4">Who We Are</h3>
+            <p class="PT-4">
+                At Delicious Tumaini Caterers (DTC), our team of passionate, creative, and culturally inspired chefs is
+                dedicated to delivering outstanding food and beverage services. Every week, we help numerous successful
+                companies motivate their employees and cultivate healthy workplaces. Our stellar reputation spans daily
+                meal services, managing company canteens, preparing offsite meals from our state-of-the-art kitchen, and
+                elevating company events with our exceptional, mouth-watering, and affordable dishes.
+            </p>
+        </div>
+        <div class="col-md-6">
+            <div class="image-container">
+                <img src="{% static 'images/Swahili_Dish.jpg' %}" alt="">
+                <div class="image-text">Your Satisfaction is Our Joy</div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- How We Do It, Our Values, Our Vision Section -->
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-4">
+            <h3>How We Do It</h3>
+            <p>We value long term clients partnerships built on trust. We appreciate that treating employees well is the
+                foundation of great companies. Our daily nutritious breakfast and lunches to companies ensures that this
+                endeavor becomes a reality. Better still, we join hands in enriching the daily eatery experience by
+                availing our professional waiters and waitresses to make the meal serving an exciting and unforgettable
+                experience.</p>
+        </div>
+        <div class="col-md-4" id="our_values">
+            <h3>Our Values</h3>
+            <ul>
+                <li>Timely service delivery. </li>
+                <li>Consistent quality & adequate meal portions.</li>
+                <li>Flexible and versatile menus.</li>
+                <li>High Quality & tasty meals.</li>
+                <li>Unlimited Customer focus.</li>
+            </ul>
+        </div>
+        <div class="col-md-4" id="our_vision">
+            <h3>Our Vision</h3>
+            <p>At DTC, we passionately believe that everyone deserves access to affordable, high-quality, and
+                nutrient-rich meals as part of their daily lives. We’re here to turn this vision into reality for both
+                individuals and corporations!</p>
+        </div>
+    </div>
+</div>
+
+<section id="client-slider" class="my-5">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="text-center">Our Clients</h1>
+        </div>
+        <div class="col-sm-12">
+            <h5 class="text-center">These are our happy clients who trust us.</h5>
+        </div>
+    </div>
+    <div class="container mt-3">
+        <div class="row owl-carousel">
+            <div class="card">
+                <div class="card-img-top text-center px-5 mt-3">
+                    <img src="{% static 'images/BSS-LOGO.png' %}" class="img-fluid">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-center">CWCCI</h5>
+                    <p class="card-text text-center">Yes! You guessed right. We did it beautifully.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-top text-center px-5 mt-3">
+                    <img src="{% static 'images/BSS-LOGO.png' %}" class="img-fluid">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-center">CWCCI</h5>
+                    <p class="card-text text-center">Yes! You guessed right. We did it beautifully.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-top text-center px-5 mt-3">
+                    <img src="{% static 'images/BSS-LOGO.png' %}" class="img-fluid">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-center">CWCCI</h5>
+                    <p class="card-text text-center">Yes! You guessed right. We did it beautifully.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-top text-center px-5 mt-3">
+                    <img src="{% static 'images/BSS-LOGO.png' %}" class="img-fluid">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title text-center">CWCCI</h5>
+                    <p class="card-text text-center">Yes! You guessed right. We did it beautifully.</p>
+                </div>
+            </div>
+            <!-- Repeat the card as needed -->
+        </div>
+    </div>
+</section>
+
+{% endblock %}
