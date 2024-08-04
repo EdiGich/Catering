@@ -86,12 +86,12 @@
                 <div class="col-xs-6 col-md-3">
                     <h6>Categories</h6>
                     <ul class="footer-links">
-                        <li><a href="#">Corporate Catering</a></li>
-                        <li><a href="#">Social Events</a></li>
-                        <li><a href="#">Weddings</a></li>
-                        <li><a href="#">Company Canteen Management</a></li>
-                        <li><a href="#">Custom Menus</a></li>
-                        <li><a href="#">Specialty Cuisine</a></li>
+                        <li><a href="{% url 'gallery' %}">Corporate Catering</a></li>
+                        <li><a href="{% url 'gallery' %}">Social Events</a></li>
+                        <li><a href="{% url 'gallery' %}">Weddings</a></li>
+                        <li><a href="{% url 'gallery' %}">Company Canteen Management</a></li>
+                        <li><a href="{% url 'sample_menus' %}">Custom Menus</a></li>
+                        <li><a href="{% url 'gallery' %}">Specialty Cuisine</a></li>
                     </ul>
                 </div>
 
@@ -115,18 +115,18 @@
             <div class="row">
                 <div class="col-md-8 col-sm-6 col-xs-12">
                     <p class="copyright-text">Copyright © 2024 All Rights Reserved by
-                        <a href="#">Delicious Tumaini Caterers (DTC)</a>.
+                        <a href="{% url 'home' %}">Delicious Tumaini Caterers (DTC)</a>.
                     </p>
                 </div>
 
-                <div class="col-md-4 col-sm-6 col-xs-12">
+                <!-- <div class="col-md-4 col-sm-6 col-xs-12">
                     <ul class="social-icons">
-                        <li><a class="facebook" href="#"><i class="fa-facebook-square"></i></a></li>
-                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a class="facebook" href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                        <li><a class="twitter" href="#"><i class="fas fa-twitter"></i></a></li>
+                        <li><a class="dribbble" href="#"><i class="fas fa-dribbble"></i></a></li>
+                        <li><a class="linkedin" href="#"><i class="fas fa-linkedin"></i></a></li>
                     </ul>
-                </div>
+                </div> -->
             </div>
         </div>
     </footer>

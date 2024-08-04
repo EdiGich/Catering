@@ -1,5 +1,23 @@
 @import url("https://fonts.googleapis.com/css?family=IBM%20Plex%20Sans:500|IBM%20Plex%20Sans:300");
 
+/* .bg-custom-bg {
+    background-color: #FA6402 !important;
+}
+
+.text-primary {
+    color: #5b8c5a !important;
+}
+
+.bg-secondary {
+    background-color: #ff6f61 !important;
+}
+
+.text-secondary {
+    color: #ff6f61 !important;
+} */
+
+
+
 body {
     background-color: white;
     color: #000;
@@ -408,11 +426,11 @@ a:active {
 
 /* FOOTER */
 .site-footer {
-    background-color: #26272b;
+    background-color: #FA6402;
     padding: 45px 0 20px;
     font-size: 15px;
     line-height: 24px;
-    color: #737373;
+    color: #ffffff;
 }
 
 .site-footer hr {
@@ -433,12 +451,12 @@ a:active {
 }
 
 .site-footer a {
-    color: #737373;
+    color: white;
 }
 
 .site-footer a:hover {
-    color: #3366cc;
-    text-decoration: none;
+    color: #028bf5;
+    text-decoration: underline;
 }
 
 .footer-links {
@@ -451,14 +469,14 @@ a:active {
 }
 
 .footer-links a {
-    color: #737373
+    color: white;
 }
 
 .footer-links a:active,
 .footer-links a:focus,
 .footer-links a:hover {
-    color: #3366cc;
-    text-decoration: none;
+    color: #028bf5;
+    text-decoration: underline;
 }
 
 .footer-links.inline li {
@@ -476,7 +494,7 @@ a:active {
     margin-left: 6px;
     margin-right: 0;
     border-radius: 100%;
-    background-color: #33353d
+    background-color: #FA6402
 }
 
 .copyright-text {
@@ -514,7 +532,7 @@ a:active {
 .social-icons li.title {
     margin-right: 15px;
     text-transform: uppercase;
-    color: #96a2b2;
+    color: white;
     font-weight: 700;
     font-size: 13px
 }
