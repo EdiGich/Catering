@@ -1,0 +1,50 @@
+# Python bytecode
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Django migration files
+*/migrations/*
+!*/migrations/__init__.py
+
+# Django secret key and other sensitive information
+.env
+
+# Virtual environment
+venv/
+.venv/
+env/
+.env/
+
+# IDE and editor files
+*.swp
+*.swo
+*.idea/
+.vscode/
+
+# Database
+db.sqlite3
+
+# Static files (if using collectstatic)
+static/
+media/
+
+# Logs
+*.log
+
+# Coverage reports
+.coverage
+*.cover
+
+# Pytest
+.cache/
+
+# Local configuration files
+*.local
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db

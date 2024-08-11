@@ -11,7 +11,7 @@
     <div class="overlay d-flex flex-column justify-content-center align-items-center text-center">
         <!-- <h1 class="text-white mb-4">About Us</h1> -->
         <div class="site-heading text-center">
-            <h1 class="mt-4 text-white">Contact Us</h1>
+            <h1 class="mt-4 text-white text-center">Contact Us</h1>
             <h3 class="text-white">We Are More Than Happy To Hear <span>From You</span></h3>
         </div>
     </div>
@@ -26,9 +26,13 @@
                     Your message has been sent successfully!
                 </div>
                 {% endif %}
+                <h1 class="mt-4 text-center">Contact Us</h1>
+                <form method="post" action="{% url 'contact' %}">
+                    <!-- method="post": Specifies that the form data should be sent using the POST method, which is more secure than GET for transmitting data. -->
+                    <!-- Specifies the URL to which the form data should be submitted. -->
 
-                <form method="post">
                     {% csrf_token %}
+                    <!-- A security measure in Django to prevent Cross-Site Request Forgery (CSRF) attacks. -->
                     <div class="form-group mb-3">
                         <label for="name">Name</label>
                         <input type="text" class="form-control" id="name" name="name" required>
@@ -46,15 +50,15 @@
                         <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
                     </div>
                     <div class="d-grid">
-                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
                     </div>
                 </form>
             </div>
         </div>
         <div class="col-md-6">
             <div class="image-container">
-                <img src="{% static 'images/Swahili_Dish.jpg' %}" alt="">
-                <div class="image-text">Your Satisfaction is Our Joy</div>
+                <img src="{% static 'images/sample3.jpg' %}" alt="">
+                <div class="image-text">Reach out to us.</div>
             </div>
         </div>
     </div>

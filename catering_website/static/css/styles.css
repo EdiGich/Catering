@@ -447,7 +447,8 @@ a:active {
     font-size: 16px;
     text-transform: uppercase;
     margin-top: 5px;
-    letter-spacing: 2px
+    letter-spacing: 2px;
+    text-decoration: underline;
 }
 
 .site-footer a {
@@ -571,8 +572,8 @@ a:active {
     background-color: #3b5998
 }
 
-.social-icons a.twitter:hover {
-    background-color: #00aced
+.social-icons a.whatsapp:hover {
+    background-color: #25D366
 }
 
 .social-icons a.linkedin:hover {
