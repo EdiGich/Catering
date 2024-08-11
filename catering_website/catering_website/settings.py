@@ -9,24 +9,27 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-import os
+#       import environ
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Initialize environment variables
+#       env = environ.Env()
+#       environ.Env.read_env()  # Read the .env file if it exists
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-u(tgga&l^2^@pz89ez@rgz7zxg9=#!+#@!cqr!jzgms*f+--6s'
+#       SECRET_KEY =env('SECRET_KEY', default='django-insecure-u(tgga&l^2^@pz89ez@rgz7zxg9=#!+#@!cqr!jzgms*f+--6s')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#       DEBUG = env.bool('DEBUG', default=True)
 
 # ALLOWED_HOSTS = ['93ca-196-216-66-22.ngrok-free.app']
-ALLOWED_HOSTS = []
+#       ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
 
 # Application definition
@@ -74,7 +77,6 @@ WSGI_APPLICATION = 'catering_website.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -85,7 +87,6 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -104,13 +105,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
 
@@ -122,7 +119,34 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+
+
+# Email settings
+#       EMAIL_BACKEND = env('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
+#       EMAIL_HOST = env('EMAIL_HOST', default='smtp.gmail.com')
+#       EMAIL_PORT = env('EMAIL_PORT', default=587)
+#       EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS', default=True)
+
+#       EMAIL_HOST_USER = env('EMAIL_HOST_USER') 
+#       EMAIL_HOST_PASSWORD =  env('EMAIL_HOST_PASSWORD')
+#       DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
+
+#will delete these after environ starts working
+SECRET_KEY='django-insecure-u(tgga&l^2^@pz89ez@rgz7zxg9=#!+#@!cqr!jzgms*f+--6s'
+ALLOWED_HOSTS=['127.0.0.1', 'localhost']
+DEBUG=True
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'noreplydtcaterers@gmail.com'  # Your new Gmail address
+EMAIL_HOST_PASSWORD = 'jlkl sxvs xhmv sxhm' # The password for this account
+DEFAULT_FROM_EMAIL = 'noreplydtcaterers@gmail.com'
