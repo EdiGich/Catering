@@ -593,3 +593,23 @@ a:active {
 }
 
 /* <FOOTER> */
+
+
+/* contact form alert */
+.alert-success {
+    position: fixed;
+    /* Change to fixed to make sure it stays in place */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Center horizontally and vertically */
+    width: auto;
+    height: auto;
+    /* Auto height to fit the content */
+    z-index: 1000;
+    /* Ensure it appears above other content */
+    padding: 20px;
+    /* Add some padding for better visibility */
+    text-align: center;
+    /* Center text inside the alert */
+}

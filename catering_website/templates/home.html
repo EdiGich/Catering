@@ -5,7 +5,11 @@
     <div class="overlay d-flex flex-column justify-content-center align-items-center text-center">
         <h1 class="text-white mb-4">HAVE A FUNCTION? WE'VE GOT THE CATERING.</h1>
         <p class="text-white mb-4">Bringing a memorable delicacy to your event.</p>
-        <a href="{% url 'contact' %}" class="btn btn-primary">Enquire Now</a>
+        <a href="{% url 'contact' %}" class="btn font-weight-bold py-2 px-4 transition"
+            style="background-color: transparent; color: #FA6402; border: 1px solid #FA6402;"
+            onmouseover="this.style.backgroundColor='#FA6402'; this.style.color='white';"
+            onmouseout="this.style.backgroundColor='transparent'; this.style.color='#FA6402';">Enquire
+            Now</a>
     </div>
 </div>
 <div class="container my-5">
@@ -29,4 +33,7 @@
         </div>
     </div>
 </div>
+<style>
+
+</style>
 {% endblock %}
