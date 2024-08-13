@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 #       DEBUG = env.bool('DEBUG', default=True)
 
-# ALLOWED_HOSTS = ['93ca-196-216-66-22.ngrok-free.app']
+# ALLOWED_HOSTS = ['6886-154-159-254-53.ngrok-free.app']
 #       ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
 
