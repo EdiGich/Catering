@@ -28,8 +28,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 #       DEBUG = env.bool('DEBUG', default=True)
 
-# ALLOWED_HOSTS = ['6886-154-159-254-53.ngrok-free.app']
-#       ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
+# ALLOWED_HOSTS = ['15bf-41-215-141-174.ngrok-free.app']
+# ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
 
 # Application definition
@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework_simplejwt',
+
 ]
 
 MIDDLEWARE = [
@@ -74,6 +77,22 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'catering_website.wsgi.application'
 
+# REST Framework configuration
+REST_FRAMEWORK = {
+    'DEFAULT_A[UTHENTICATION_CLASSES': 
+        ['rest_framework_simplejwt.authentication.JWTAuthentication',],
+        'DEFAULT_PERMISSION_CLASSES': 
+('rest_framework.permissions.AllowAny','rest_framework.permissions.IsAuthenticatedOrReadOnly',)}
+
+
+# Simple JWT settings (optional customization)
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),  # I can adjust this as needed
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'AUTH_HEADER_TYPES': ('Bearer',),
+}
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -139,7 +158,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 #will delete these after environ starts working
 SECRET_KEY='django-insecure-u(tgga&l^2^@pz89ez@rgz7zxg9=#!+#@!cqr!jzgms*f+--6s'
-ALLOWED_HOSTS=['127.0.0.1', 'localhost']
+ALLOWED_HOSTS=['127.0.0.1', 'localhost','15bf-41-215-141-174.ngrok-free.app']
 DEBUG=True
 
 

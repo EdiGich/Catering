@@ -4,6 +4,11 @@ from .forms import ContactForm
 from .models import MenuItem, GalleryItem
 from django.core.mail import EmailMessage
 
+from rest_framework import generics
+from rest_framework.response import Response
+from rest_framework_simplejwt.tokens import RefreshToken
+from .serializers import LoginSerializer
+
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
@@ -67,3 +72,17 @@ def contact(request):
 
 def terms(request):
     return render(request, 'terms.html')
+
+class CustomTokenObtainPairView(generics.GenericAPIView):
+    serializer_class = LoginSerializer
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data['user']
+        refresh = RefreshToken.for_user(user)
+
+        return Response({
+            'refresh': str(refresh),
+            'access': str(refresh.access_token),
+        })
