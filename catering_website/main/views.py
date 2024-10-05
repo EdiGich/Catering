@@ -7,9 +7,12 @@ from django.core.mail import EmailMessage
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.views import TokenObtainPairView
+
 from .serializers import LoginSerializer
 
 # Create your views here.
+
 def home(request):
     return render(request, 'home.html')
 
@@ -21,7 +24,7 @@ def services(request):
 
 def sample_menus(request):
     menu_items = MenuItem.objects.all()
-    context = { 'menu_items': menu_items}
+    context = { 'menu_items': menu_items }
     return render(request, 'sample_menus.html', context)
 
 def gallery(request):
@@ -37,16 +40,17 @@ def contact(request):
             email = form.cleaned_data['email']
             phone = form.cleaned_data['phone']
             message = form.cleaned_data['message']
-            # Send email (for example purposes, adjust settings as necessary)
-            #       send_mail(
-            #           f"Message from {name}",
-            #           message,
-            #           email,
-            #           ['dtcdelicioustumainicaterers@gmail.com'], # Replace with your email
-            #           fail_silently=False,
-            #       )
+            
+            # Send email using the send_mail function
+            # send_mail(
+            #     f"Message from {name}",
+            #     message,
+            #     email,
+            #     ['dtcdelicioustumainicaterers@gmail.com'],  # Replace with your email
+            #     fail_silently=False,
+            # )
 
-# Compose the email message
+            # Compose the email message
             email_subject = f"Message from {name}"
             email_body = f"Name: {name}\nEmail: {email}\nPhone: {phone}\n\nMessage:\n{message}"
 
@@ -67,12 +71,13 @@ def contact(request):
 
             return render(request, 'contact.html', {'form': form, 'success': True})
     else:
-        form=ContactForm()
+        form = ContactForm()
     return render(request, 'contact.html', {'form': form})
 
 def terms(request):
     return render(request, 'terms.html')
 
+# Custom token view using JWT for authentication
 class CustomTokenObtainPairView(generics.GenericAPIView):
     serializer_class = LoginSerializer
 
