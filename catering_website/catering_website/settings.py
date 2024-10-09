@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_simplejwt',
+    'rest_framework.authtoken',
     'corsheaders',
 
 ]
@@ -82,7 +83,7 @@ WSGI_APPLICATION = 'catering_website.wsgi.application'
 # REST Framework configuration
 REST_FRAMEWORK = {
     'DEFAULT_A[UTHENTICATION_CLASSES': 
-        ['rest_framework_simplejwt.authentication.JWTAuthentication',],
+        ['rest_framework_simplejwt.authentication.JWTAuthentication','rest_framework.authentication.TokenAuthentication',],
         'DEFAULT_PERMISSION_CLASSES': 
 ('rest_framework.permissions.AllowAny','rest_framework.permissions.IsAuthenticatedOrReadOnly',)}
 
@@ -164,7 +165,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 #will delete these after environ starts working
 SECRET_KEY='django-insecure-u(tgga&l^2^@pz89ez@rgz7zxg9=#!+#@!cqr!jzgms*f+--6s'
-ALLOWED_HOSTS=['127.0.0.1', 'localhost','15bf-41-215-141-174.ngrok-free.app']
+ALLOWED_HOSTS=['127.0.0.1', 'localhost', '10.0.2.2','15bf-41-215-141-174.ngrok-free.app']
 DEBUG=True
 
 
