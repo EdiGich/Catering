@@ -1,13 +1,10 @@
 from django.contrib import admin
 from django.urls import path
-from . import views
 from django.conf import settings
 from django.conf.urls.static import static
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView  # Import JWT views from package
-from .views import CustomTokenObtainPairView  # Import your custom view if it exists
-
-# from .views import home, about, services, sample_menus, gallery, contact, terms
-
+from rest_framework_simplejwt.views import TokenRefreshView
+from . import views
+from .views import CustomTokenObtainPairView, upload_gallery_item  # Ensure these views are correctly imported
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -17,9 +14,9 @@ urlpatterns = [
     path('gallery/', views.gallery, name='gallery'),
     path('contact/', views.contact, name='contact'),
     path('terms/', views.terms, name='terms'),
-    path('api/token/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),  # Custom JWT view
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # Refresh token view
-
+    path('api/token/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/upload-gallery/', upload_gallery_item, name='upload_gallery_item'),  # Upload endpoint
 ]
 
 if settings.DEBUG:

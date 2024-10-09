@@ -4,12 +4,13 @@ from .forms import ContactForm
 from .models import MenuItem, GalleryItem
 from django.core.mail import EmailMessage
 
-from rest_framework import generics
+from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework.decorators import api_view
 
-from .serializers import LoginSerializer
+from .serializers import LoginSerializer, GalleryItemSerializer
 
 # Create your views here.
 
@@ -78,7 +79,31 @@ def terms(request):
     return render(request, 'terms.html')
 
 # Custom token view using JWT for authentication
-class CustomTokenObtainPairView(generics.GenericAPIView):
+# class CustomTokenObtainPairView(generics.GenericAPIView):
+#     serializer_class = LoginSerializer
+
+#     def post(self, request, *args, **kwargs):
+#         serializer = self.get_serializer(data=request.data)
+#         serializer.is_valid(raise_exception=True)
+#         user = serializer.validated_data['user']
+#         refresh = RefreshToken.for_user(user)
+
+#         return Response({
+#             'refresh': str(refresh),
+#             'access': str(refresh.access_token),
+#         })
+    
+# @api_view(['POST'])
+# def upload_gallery_item(request):
+#     print(request.headers) # to confirm whether the token is sent
+#     if request.method == 'POST':
+#         serializer = GalleryItemSerializer(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = LoginSerializer
 
     def post(self, request, *args, **kwargs):
@@ -91,3 +116,13 @@ class CustomTokenObtainPairView(generics.GenericAPIView):
             'refresh': str(refresh),
             'access': str(refresh.access_token),
         })
+
+@api_view(['POST'])
+def upload_gallery_item(request):
+    print(request.headers)  # to confirm whether the token is sent
+    if request.method == 'POST':
+        serializer = GalleryItemSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

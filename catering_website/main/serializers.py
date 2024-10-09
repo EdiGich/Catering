@@ -3,6 +3,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+from .models import GalleryItem  # Make sure you have this model in your models.py
 
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()
@@ -24,3 +25,9 @@ class LoginSerializer(serializers.Serializer):
             raise serializers.ValidationError("Must include 'username' and 'password'.")
 
         return data
+
+class GalleryItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GalleryItem
+        fields = ['title', 'description', 'image']  # Adjust the fields according to your model
+
