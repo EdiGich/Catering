@@ -10,6 +10,8 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from .serializers import LoginSerializer, GalleryItemSerializer
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 
 # Regular views for your Django pages
 
@@ -78,7 +80,7 @@ class CustomTokenObtainPairView(TokenObtainPairView):
             'refresh': str(refresh),
             'access': str(refresh.access_token),
         })
-
+@method_decorator(csrf_exempt, name='dispatch')
 class GalleryItemUploadView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -90,8 +92,10 @@ class GalleryItemUploadView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 # Function-based view for gallery item upload (Optional)
+@csrf_exempt
 @api_view(['POST'])
 def upload_gallery_item(request):
+    print(request.headers.get('Authorization'))  # Check if token is received
     if request.method == 'POST':
         serializer = GalleryItemSerializer(data=request.data)
         if serializer.is_valid():

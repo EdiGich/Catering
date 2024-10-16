@@ -81,12 +81,19 @@ TEMPLATES = [
 WSGI_APPLICATION = 'catering_website.wsgi.application'
 
 # REST Framework configuration
+# REST_FRAMEWORK = {
+#     'DEFAULT_A[UTHENTICATION_CLASSES': 
+#         ['rest_framework_simplejwt.authentication.JWTAuthentication','rest_framework.authentication.TokenAuthentication',],
+#     'DEFAULT_PERMISSION_CLASSES': 
+#         ('rest_framework.permissions.AllowAny','rest_framework.permissions.IsAuthenticated',)}
 REST_FRAMEWORK = {
-    'DEFAULT_A[UTHENTICATION_CLASSES': 
-        ['rest_framework_simplejwt.authentication.JWTAuthentication','rest_framework.authentication.TokenAuthentication',],
-        'DEFAULT_PERMISSION_CLASSES': 
-('rest_framework.permissions.AllowAny','rest_framework.permissions.IsAuthenticatedOrReadOnly',)}
-
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
 
 # Simple JWT settings (optional customization)
 from datetime import timedelta
