@@ -16,7 +16,7 @@ urlpatterns = [
     path('terms/', views.terms, name='terms'),
     path('api/token/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('api/upload-gallery/', upload_gallery_item, name='upload_gallery_item'),  # Upload endpoint
+    path('api/galleryitem/upload/', views.upload_gallery_item, name='upload_gallery_item'),  # Upload endpoint
 ]
 
 if settings.DEBUG:
