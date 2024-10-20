@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework_simplejwt.views import TokenRefreshView
 from . import views
-from .views import CustomTokenObtainPairView, upload_gallery_item  # Ensure these views are correctly imported
+from .views import CustomTokenObtainPairView, upload_gallery_item, GalleryItemManageView
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -14,10 +14,17 @@ urlpatterns = [
     path('gallery/', views.gallery, name='gallery'),
     path('contact/', views.contact, name='contact'),
     path('terms/', views.terms, name='terms'),
+
+    # JWT Token endpoints
     path('api/token/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('api/galleryitem/upload/', views.upload_gallery_item, name='upload_gallery_item'),  # Upload endpoint
+
+    # Gallery API endpoints
+    path('api/galleryitem/upload/', upload_gallery_item, name='upload_gallery_item'),  # Upload endpoint
+    path('api/galleryitem/manage/', GalleryItemManageView.as_view(), name='galleryitem-manage'),
+    path('api/galleryitem/manage/<int:pk>/', GalleryItemManageView.as_view(), name='galleryitem-manage-detail'),
 ]
 
+# Serve media files during development
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
