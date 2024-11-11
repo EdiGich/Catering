@@ -29,5 +29,5 @@ class LoginSerializer(serializers.Serializer):
 class GalleryItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = GalleryItem
-        fields = ['title', 'description', 'image']  # Adjust the fields according to your model
+        fields = ['id','title', 'description', 'image']  # Adjust the fields according to your model
 
