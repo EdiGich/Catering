@@ -1,10 +1,15 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework_simplejwt.views import TokenRefreshView
+from rest_framework.routers import DefaultRouter
 from . import views
-from .views import CustomTokenObtainPairView, upload_gallery_item, GalleryItemManageView
+from .views import CustomTokenObtainPairView, upload_gallery_item, GalleryItemManageView, MenuItemViewSet
+
+router = DefaultRouter()
+router.register(r'menu', MenuItemViewSet)
+
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -14,6 +19,8 @@ urlpatterns = [
     path('gallery/', views.gallery, name='gallery'),
     path('contact/', views.contact, name='contact'),
     path('terms/', views.terms, name='terms'),
+
+    path('api/', include(router.urls)),
 
     # JWT Token endpoints
     path('api/token/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),

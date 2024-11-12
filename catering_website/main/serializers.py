@@ -4,6 +4,7 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from .models import GalleryItem  # Make sure you have this model in your models.py
+from .models import MenuItem
 
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()
@@ -31,3 +32,13 @@ class GalleryItemSerializer(serializers.ModelSerializer):
         model = GalleryItem
         fields = ['id','title', 'description', 'image']  # Adjust the fields according to your model
 
+class MenuItemSerializer(serializers.ModelSerializer):
+    image_url = serializers.SerializerMethodField()
+
+    class Meta:
+        model = MenuItem
+        fields = ['id', 'name', 'description', 'price', 'image_url']
+
+    def get_image_url(self, obj):
+        request = self.context.get('request')
+        return request.build_absolute_uri(obj.image.url) if obj.image else None

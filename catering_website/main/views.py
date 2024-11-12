@@ -8,11 +8,12 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.views import APIView
+from rest_framework import viewsets
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from .forms import ContactForm
 from .models import MenuItem, GalleryItem
-from .serializers import LoginSerializer, GalleryItemSerializer
+from .serializers import LoginSerializer, GalleryItemSerializer, MenuItemSerializer
 
 # Standard Django Views
 
@@ -180,3 +181,8 @@ def manage_gallery_item(request, item_id=None):
             return Response({'message': 'Gallery item deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
     except GalleryItem.DoesNotExist:
         return Response({'error': 'Gallery item not found'}, status=status.HTTP_404_NOT_FOUND)
+
+class MenuItemViewSet(viewsets.ModelViewSet):
+    queryset = MenuItem.objects.all()
+    serializer_class = MenuItemSerializer
+    permission_classes = [IsAuthenticated]
