@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 from rest_framework_simplejwt.views import TokenRefreshView
 from rest_framework.routers import DefaultRouter
 from . import views
-from .views import CustomTokenObtainPairView, upload_gallery_item, GalleryItemManageView, MenuItemViewSet
+from .views import CustomTokenObtainPairView, upload_gallery_item, GalleryItemManageView, MenuItemViewSet, contact, get_messages
 
 router = DefaultRouter()
 router.register(r'menu', MenuItemViewSet)
@@ -18,6 +18,7 @@ urlpatterns = [
     path('sample_menus/', views.sample_menus, name='sample_menus'),
     path('gallery/', views.gallery, name='gallery'),
     path('contact/', views.contact, name='contact'),
+    path('api/get-messages/', views.get_messages, name='get_messages'),
     path('terms/', views.terms, name='terms'),
 
     path('api/', include(router.urls)),

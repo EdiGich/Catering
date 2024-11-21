@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.mail import EmailMessage
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import user_passes_test, login_required
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework import generics, status
 from rest_framework.response import Response
@@ -12,8 +12,9 @@ from rest_framework import viewsets
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from .forms import ContactForm
-from .models import MenuItem, GalleryItem
-from .serializers import LoginSerializer, GalleryItemSerializer, MenuItemSerializer
+from .models import MenuItem, GalleryItem, ContactMessage
+from .serializers import LoginSerializer, GalleryItemSerializer, MenuItemSerializer, ContactMessageSerializer
+from django.http import JsonResponse
 
 # Standard Django Views
 
@@ -42,6 +43,14 @@ def contact(request):
             email = form.cleaned_data['email']
             phone = form.cleaned_data['phone']
             message = form.cleaned_data['message']
+
+            #save to db
+            ContactMessage.objects.create(
+                name=name,
+                email=email,
+                phone=phone,
+                message=message
+            )
 
             # Compose email
             email_subject = f"Message from {name}"
@@ -186,3 +195,22 @@ class MenuItemViewSet(viewsets.ModelViewSet):
     queryset = MenuItem.objects.all()
     serializer_class = MenuItemSerializer
     permission_classes = [IsAuthenticated]
+
+@api_view(['GET', 'PUT', 'DELETE'])
+@permission_classes([IsAuthenticated])
+def get_messages(request):
+    # if not request.user.is_staff:
+    #     return JsonResponse({'error': 'Unauthorized access'}, status=403)
+
+    # messages = ContactMessage.objects.all().order_by('-sent_at').values(
+    #     'id', 'name', 'email', 'phone', 'message', 'sent_at'
+    # )
+    # return JsonResponse(list(messages), safe=False)
+    # Query all contact messages
+    messages = ContactMessage.objects.all()
+    
+    # Serialize the messages
+    serializer = ContactMessageSerializer(messages, many=True)
+
+    # Return JSON response with serialized data
+    return Response(serializer.data)

@@ -3,8 +3,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
-from .models import GalleryItem  # Make sure you have this model in your models.py
-from .models import MenuItem
+from .models import GalleryItem , MenuItem, ContactMessage
 
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()
@@ -30,7 +29,7 @@ class LoginSerializer(serializers.Serializer):
 class GalleryItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = GalleryItem
-        fields = ['id','title', 'description', 'image']  # Adjust the fields according to your model
+        fields = ['id','title', 'description', 'image']
 
 class MenuItemSerializer(serializers.ModelSerializer):
     image_url = serializers.SerializerMethodField()
@@ -42,3 +41,8 @@ class MenuItemSerializer(serializers.ModelSerializer):
     def get_image_url(self, obj):
         request = self.context.get('request')
         return request.build_absolute_uri(obj.image.url) if obj.image else None
+
+class ContactMessageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ContactMessage
+        fields = ['id', 'name', 'email', 'phone', 'message', 'sent_at']
