@@ -45,4 +45,5 @@ class MenuItemSerializer(serializers.ModelSerializer):
 class ContactMessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContactMessage
-        fields = ['id', 'name', 'email', 'phone', 'message', 'sent_at']
+        fields = ['id', 'name', 'email', 'phone', 'message', 'sent_at', 'status']
+        # fields = '__all__'
