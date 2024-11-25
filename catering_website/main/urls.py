@@ -5,20 +5,24 @@ from django.conf.urls.static import static
 from rest_framework_simplejwt.views import TokenRefreshView
 from rest_framework.routers import DefaultRouter
 from . import views
-from .views import CustomTokenObtainPairView, upload_gallery_item, GalleryItemManageView, MenuItemViewSet, contact, get_messages
-
+# from .views import CustomTokenObtainPairView, upload_gallery_item, GalleryItemManageView, MenuItemViewSet, contact, get_messages
+from .views import CustomTokenObtainPairView, upload_gallery_item, GalleryItemManageView, MenuItemViewSet, ContactMessagesViewSet
 router = DefaultRouter()
 router.register(r'menu', MenuItemViewSet)
+# The `menu` API endpoint is automatically handled by DefaultRouter for MenuItemViewSet.
+# This includes CRUD operations like list, create, update, delete.
 
+router.register(r'messages', ContactMessagesViewSet)
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('about/', views.about, name='about'),
+    path('about/', views.about, name='about'),                                                                                             
+    
     path('services/', views.services, name='services'),
     path('sample_menus/', views.sample_menus, name='sample_menus'),
     path('gallery/', views.gallery, name='gallery'),
     path('contact/', views.contact, name='contact'),
-    path('api/get-messages/', views.get_messages, name='get_messages'),
+    # path('api/get-messages/', views.get_messages, name='get_messages'),
     path('terms/', views.terms, name='terms'),
 
     path('api/', include(router.urls)),

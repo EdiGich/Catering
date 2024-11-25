@@ -9,6 +9,8 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.views import APIView
 from rest_framework import viewsets
+from rest_framework.viewsets import ModelViewSet
+
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from .forms import ContactForm
@@ -25,6 +27,7 @@ def about(request):
     return render(request, 'about.html')
 
 def services(request):
+
     return render(request, 'services.html')
 
 def sample_menus(request):
@@ -196,21 +199,26 @@ class MenuItemViewSet(viewsets.ModelViewSet):
     serializer_class = MenuItemSerializer
     permission_classes = [IsAuthenticated]
 
-@api_view(['GET', 'PUT', 'DELETE'])
-@permission_classes([IsAuthenticated])
-def get_messages(request):
-    # if not request.user.is_staff:
-    #     return JsonResponse({'error': 'Unauthorized access'}, status=403)
+# @api_view(['GET', 'PUT', 'DELETE'])
+# @permission_classes([IsAuthenticated])
+# def get_messages(request):
+#     # if not request.user.is_staff:
+#     #     return JsonResponse({'error': 'Unauthorized access'}, status=403)
 
-    # messages = ContactMessage.objects.all().order_by('-sent_at').values(
-    #     'id', 'name', 'email', 'phone', 'message', 'sent_at'
-    # )
-    # return JsonResponse(list(messages), safe=False)
-    # Query all contact messages
-    messages = ContactMessage.objects.all()
+#     # messages = ContactMessage.objects.all().order_by('-sent_at').values(
+#     #     'id', 'name', 'email', 'phone', 'message', 'sent_at'
+#     # )
+#     # return JsonResponse(list(messages), safe=False)
+#     # Query all contact messages
+#     messages = ContactMessage.objects.all()
     
-    # Serialize the messages
-    serializer = ContactMessageSerializer(messages, many=True)
+#     # Serialize the messages
+#     serializer = ContactMessageSerializer(messages, many=True)
 
-    # Return JSON response with serialized data
-    return Response(serializer.data)
+#     # Return JSON response with serialized data
+#     return Response(serializer.data)
+
+class ContactMessagesViewSet(ModelViewSet):
+    queryset = ContactMessage.objects.all().order_by('-sent_at')
+    serializer_class = ContactMessageSerializer
+    permission_classes = [IsAuthenticated]

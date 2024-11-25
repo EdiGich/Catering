@@ -19,11 +19,12 @@ class GalleryItem(models.Model):
         return self.title
     
 class ContactMessage(models.Model):
-    name = models.CharField(max_length=100)
-    email = models.EmailField()
-    phone = models.CharField(max_length=13)
-    message = models.TextField()
+    name = models.CharField(max_length=100, blank=True)
+    email = models.EmailField(blank=True)
+    phone = models.CharField(max_length=13, blank=True)
+    message = models.TextField(blank=True)
     sent_at = models.DateTimeField(auto_now_add=True)
+    status = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"Message from {self.name} ({self.email})"
+        return self.name
