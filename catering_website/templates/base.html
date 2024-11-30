@@ -43,6 +43,9 @@
                         class="nav-link text-white {% if request.path == '/sample_menus/' %}active{% endif %}"
                         href="{% url 'sample_menus' %}">Menus</a>
                 </li>
+                <li class="nav-item"><a class="nav-link text-white {% if request.path == '/news/' %}active{% endif %}"
+                        href="{% url 'news' %}">News & Events</a>
+                </li>
                 <li class="nav-item"><a
                         class="nav-link text-white {% if request.path == '/gallery/' %}active{% endif %}"
                         href="{% url 'gallery' %}">Gallery</a></li>

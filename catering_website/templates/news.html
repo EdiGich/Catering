@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <!-- Page Header -->
+    <div class="text-center mb-4">
+        <h1 class="display-4">Events & Latest News</h1>
+        <p class="lead">Stay updated with our latest happenings and announcements.</p>
+    </div>
+
+    <!-- Events Section -->
+    <div class="mb-5">
+        <h2 class="mb-3">Upcoming Events</h2>
+        <div class="row">
+            {% for event in events %}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="{{ event.image.url }}" class="card-img-top" alt="{{ event.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ event.title }}</h5>
+                        <p class="card-text">{{ event.description|truncatewords:20 }}</p>
+                        <p class="text-muted small">
+                            <i class="fas fa-calendar-alt"></i>
+                            {{ event.date|date:"F j, Y" }}
+                            <br>
+                            <i class="fas fa-clock"></i>
+                            {{ event.time }}
+                        </p>
+                        <a href="{{ event.detail_url }}" class="btn btn-outline-primary btn-sm">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p>No events are available at the moment.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Latest News Section -->
+    <div>
+        <h2 class="mb-3">Latest News</h2>
+        <div class="row">
+            {% for news in news_items %}
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ news.title }}</h5>
+                        <p class="card-text">{{ news.content|truncatewords:30 }}</p>
+                        <p class="text-muted small">
+                            <i class="fas fa-calendar-alt"></i>
+                            {{ news.published_at|date:"F j, Y" }}
+                        </p>
+                        <a href="{{ news.detail_url }}" class="btn btn-outline-secondary btn-sm">
+                            Read More
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p>No news updates are available at the moment.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

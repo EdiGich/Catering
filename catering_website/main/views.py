@@ -14,7 +14,7 @@ from rest_framework.viewsets import ModelViewSet
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from .forms import ContactForm
-from .models import MenuItem, GalleryItem, ContactMessage
+from .models import MenuItem, GalleryItem, ContactMessage, Event, News
 from .serializers import LoginSerializer, GalleryItemSerializer, MenuItemSerializer, ContactMessageSerializer
 from django.http import JsonResponse
 
@@ -29,6 +29,15 @@ def about(request):
 def services(request):
 
     return render(request, 'services.html')
+
+def news_events(request):
+    events = Event.objects.order_by('-date')
+
+    news_items = News.objects.order_by('-published_at')
+    return render(request, 'news.html',{
+        'events':events,
+        'news_items': news_items
+    })
 
 def sample_menus(request):
     menu_items = MenuItem.objects.all()

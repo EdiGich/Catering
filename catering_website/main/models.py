@@ -28,3 +28,30 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return self.name
+
+class Event(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    date = models.DateField()
+    time = models.TimeField()
+    image = models.ImageField(upload_to='events/')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+    def detail_url(self):
+        return f"/events/{self.id}"  # Adjust based on your URL patterns
+
+
+class News(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    published_at = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+    def detail_url(self):
+        return f"/news/{self.id}"  # Adjust based on your URL patterns
