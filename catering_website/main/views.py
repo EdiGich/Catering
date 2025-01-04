@@ -33,7 +33,7 @@ def services(request):
 def news_events(request):
     events = Event.objects.order_by('-date')
 
-    news_items = News.objects.order_by('-published_at')
+    news_items = News.objects.order_by('-date')
     return render(request, 'news.html',{
         'events':events,
         'news_items': news_items
