@@ -47,7 +47,8 @@ class Event(models.Model):
 class News(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
-    published_at = models.DateTimeField()
+    date = models.DateField()
+    time = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

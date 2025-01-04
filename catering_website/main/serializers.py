@@ -3,7 +3,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
-from .models import GalleryItem , MenuItem, ContactMessage
+from .models import GalleryItem , MenuItem, ContactMessage, News, Event
 
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()
@@ -47,3 +47,13 @@ class ContactMessageSerializer(serializers.ModelSerializer):
         model = ContactMessage
         fields = ['id', 'name', 'email', 'phone', 'message', 'sent_at', 'status']
         # fields = '__all__'
+
+class EventsItemsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Event
+        fields = ['id','title', 'description', 'date', 'time', 'image','created_at']
+
+class NewsItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = News
+        fields = ['id','content', 'date', 'time', 'created_at']

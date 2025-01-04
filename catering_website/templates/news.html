@@ -10,7 +10,7 @@
 
     <!-- Events Section -->
     <div class="mb-5">
-        <h2 class="mb-3">Upcoming Events</h2>
+        <h2 class="mb-3">Events</h2>
         <div class="row">
             {% for event in events %}
             <div class="col-md-6 col-lg-4 mb-4">
@@ -26,9 +26,9 @@
                             <i class="fas fa-clock"></i>
                             {{ event.time }}
                         </p>
-                        <a href="{{ event.detail_url }}" class="btn btn-outline-primary btn-sm">
+                        <!-- <a href="{{ event.detail_url }}" class="btn btn-outline-primary btn-sm">
                             Learn More
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
 
     <!-- Latest News Section -->
     <div>
-        <h2 class="mb-3">Latest News</h2>
+        <h2 class="mb-3">Our Latest News</h2>
         <div class="row">
             {% for news in news_items %}
             <div class="col-md-6 mb-4">
@@ -52,9 +52,9 @@
                             <i class="fas fa-calendar-alt"></i>
                             {{ news.published_at|date:"F j, Y" }}
                         </p>
-                        <a href="{{ news.detail_url }}" class="btn btn-outline-secondary btn-sm">
+                        <!-- <a href="{{ news.detail_url }}" class="btn btn-outline-secondary btn-sm">
                             Read More
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </div>

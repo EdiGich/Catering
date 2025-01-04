@@ -15,7 +15,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from .forms import ContactForm
 from .models import MenuItem, GalleryItem, ContactMessage, Event, News
-from .serializers import LoginSerializer, GalleryItemSerializer, MenuItemSerializer, ContactMessageSerializer
+from .serializers import LoginSerializer, GalleryItemSerializer, MenuItemSerializer, ContactMessageSerializer, EventsItemsSerializer, NewsItemSerializer
 from django.http import JsonResponse
 
 # Standard Django Views
@@ -230,4 +230,14 @@ class MenuItemViewSet(viewsets.ModelViewSet):
 class ContactMessagesViewSet(ModelViewSet):
     queryset = ContactMessage.objects.all().order_by('-sent_at')
     serializer_class = ContactMessageSerializer
+    permission_classes = [IsAuthenticated]
+
+class NewsViewSet(viewsets.ModelViewSet):
+    queryset = News.objects.all()
+    serializer_class = NewsItemSerializer
+    permission_classes = [IsAuthenticated]
+
+class EventsViewSet(viewsets.ModelViewSet):
+    queryset = Event.objects.all()
+    serializer_class = EventsItemsSerializer
     permission_classes = [IsAuthenticated]

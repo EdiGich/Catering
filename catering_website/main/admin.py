@@ -25,6 +25,6 @@ class EventAdmin(admin.ModelAdmin):
 
 @admin.register(News)
 class NewsAdmin(admin.ModelAdmin):
-    list_display = ('title', 'published_at', 'created_at')
+    list_display = ('title', 'date','time', 'created_at')
     search_fields = ('title', 'content')
-    list_filter = ('published_at',)
+    list_filter = ('date','time')

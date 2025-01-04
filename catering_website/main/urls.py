@@ -6,13 +6,15 @@ from rest_framework_simplejwt.views import TokenRefreshView
 from rest_framework.routers import DefaultRouter
 from . import views
 # from .views import CustomTokenObtainPairView, upload_gallery_item, GalleryItemManageView, MenuItemViewSet, contact, get_messages
-from .views import CustomTokenObtainPairView, upload_gallery_item, GalleryItemManageView, MenuItemViewSet, ContactMessagesViewSet
+from .views import CustomTokenObtainPairView, upload_gallery_item, GalleryItemManageView, MenuItemViewSet, ContactMessagesViewSet, NewsViewSet, EventsViewSet
 router = DefaultRouter()
 router.register(r'menu', MenuItemViewSet)
 # The `menu` API endpoint is automatically handled by DefaultRouter for MenuItemViewSet.
 # This includes CRUD operations like list, create, update, delete.
 
 router.register(r'messages', ContactMessagesViewSet)
+router.register(r'news', NewsViewSet)
+router.register(r'events', EventsViewSet)
 
 urlpatterns = [
     path('', views.home, name='home'),
