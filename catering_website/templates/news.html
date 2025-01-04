@@ -50,7 +50,10 @@
                         <p class="card-text">{{ news.content|truncatewords:30 }}</p>
                         <p class="text-muted small">
                             <i class="fas fa-calendar-alt"></i>
-                            {{ news.published_at|date:"F j, Y" }}
+                            {{ news.date|date:"F j, Y" }}
+                            <br>
+                            <i class="fas fa-clock"></i>
+                            {{ news.time }}
                         </p>
                         <!-- <a href="{{ news.detail_url }}" class="btn btn-outline-secondary btn-sm">
                             Read More
