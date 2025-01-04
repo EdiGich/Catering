@@ -56,4 +56,4 @@ class EventsItemsSerializer(serializers.ModelSerializer):
 class NewsItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = News
-        fields = ['id','content', 'date', 'time', 'created_at']
+        fields = ['id','title','content', 'date', 'time', 'created_at']
