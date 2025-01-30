@@ -1,8 +1,16 @@
+!iceberg/static/icon
+
 # Python bytecode
 *.pyc
 *.pyo
 *.pyd
+*.log
+*.pot
+*.pyc
 __pycache__/
+
+# Backup files # 
+*.bak 
 
 # Django migration files
 */migrations/*
@@ -23,6 +31,18 @@ env/
 *.idea/
 .vscode/
 
+# Generated files
+.idea/**/contentModel.xml
+
+# Sensitive or high-churn files
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
+
 # Database
 db.sqlite3
 
@@ -33,6 +53,10 @@ media/
 # Logs
 *.log
 
+# Installer logs 
+pip-log.txt 
+pip-delete-this-directory.txt 
+
 # Coverage reports
 .coverage
 *.cover
@@ -40,8 +64,28 @@ media/
 # Pytest
 .cache/
 
+# Unit test / coverage reports 
+htmlcov/ 
+.tox/ 
+.coverage 
+.coverage.* 
+.cache 
+.pytest_cache/ 
+nosetests.xml 
+coverage.xml 
+*.cover 
+.hypothesis/ 
+
 # Local configuration files
 *.local
+
+# Visual Studio Code # 
+.vscode/* 
+!.vscode/settings.json 
+!.vscode/tasks.json 
+!.vscode/launch.json 
+!.vscode/extensions.json 
+.history
 
 # macOS
 .DS_Store

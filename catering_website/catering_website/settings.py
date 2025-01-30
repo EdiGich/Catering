@@ -183,7 +183,7 @@ CORS_ALLOW_ALL_ORIGINS = True  # For development; restrict this for production
 
 #will delete these after environ starts working
 SECRET_KEY='django-insecure-u(tgga&l^2^@pz89ez@rgz7zxg9=#!+#@!cqr!jzgms*f+--6s'
-ALLOWED_HOSTS=['127.0.0.1', 'localhost', '192.168.0.105', '10.0.2.2','15bf-41-215-141-174.ngrok-free.app']
+ALLOWED_HOSTS=['127.0.0.1', 'localhost', '192.168.0.105', '10.0.2.2','catering_website.onrender.com']
 DEBUG=True
 
 
