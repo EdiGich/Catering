@@ -36,6 +36,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 INSTALLED_APPS = [
     'main',
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -78,7 +79,17 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'catering_website.wsgi.application'
+ASGI_APPLICATION = 'catering_website.asgi.application'
+
+#Channel layers configuration
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],  # Ensure Redis is running on this host and port
+        },
+    },
+}
 
 # REST Framework configuration
 # REST_FRAMEWORK = {
