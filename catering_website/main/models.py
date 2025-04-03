@@ -24,7 +24,7 @@ class ContactMessage(models.Model):
     phone = models.CharField(max_length=13, blank=True)
     message = models.TextField(blank=True)
     sent_at = models.DateTimeField(auto_now_add=True)
-    status = models.BooleanField(default=False)
+    status = models.CharField(max_length=1, default='0')
 
     def __str__(self):
         return self.name
