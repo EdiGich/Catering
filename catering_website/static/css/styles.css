@@ -13,6 +13,7 @@ body {
 /* ----------------------nav-------------------------- */
 nav.navbar {
     background-color: #FA6402;
+    padding-left: 20px;
 }
 
 .nav-link {
@@ -22,13 +23,9 @@ nav.navbar {
 
 .nav-link.active {
     border: 2px solid white;
-    /* Add white border */
     border-radius: 4px;
-    /* Optional: Add rounded corners */
     padding: 5px;
-    /* Adjust padding if necessary */
     background-color: rgba(255, 255, 255, 0.1);
-    /* Optional: Add a subtle background color */
 }
 
 /* ---------------------</nav>--------------------- */
@@ -126,15 +123,7 @@ nav.navbar {
     width: 50px;
 }
 
-.card-title {
-    color: #18abd0;
-}
 
-.card-img-top img {
-    max-height: 70px;
-    max-width: 70px;
-    margin: auto;
-}
 
 /* about page */
 

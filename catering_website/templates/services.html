@@ -1,99 +1,159 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<!-- <h1>Our Services</h1>
-<h2>Corporate Events</h2>
-<p>Placeholder content for corporate events.</p>
-<h2>Social Events</h2>
-<p>Placeholder content for social events.</p>
-<h2>Company Canteen Management</h2>
-<p>Placeholder content for company canteen management.</p> -->
 
-<section class="we-offer-area text-center bg-gray">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="site-heading text-center">
-                    <h4>Our Services</h4>
-                    <h2>What we <span>Offer</span></h2>
+<!-- Header Section -->
+<section class="position-relative text-white py-5">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold text-primary animate__animated animate__fadeInDown">Our Services</h1>
+        <p class="lead text-primary animate__animated animate__fadeInDown" style="animation-delay: 0.3s;">Discover What
+            We <span class="text-primary fw-bold">Offer</span></p>
+    </div>
+</section>
 
+<!-- Services Section -->
+<section class="container my-5">
+    <div class="row g-4 our-offer-items justify-content-center animate__animated animate__fadeInLeft">
+        <!-- Corporate Events -->
+        <div class="col-md-4 col-sm-6">
+            <div class="card h-100 shadow-sm border-0 service-card">
+                <div class="card-body text-center">
+                    <i class="fas fa-building fa-3x text-primary mb-3"></i>
+                    <h4 class="fw-semibold text-primary">Corporate Events</h4>
+                    <p class="text-muted">We handle all the details for your Corporate Luncheon, Company Party, Board
+                        Meeting, Gala Night, or Annual General Meeting—delivering flawless catering every time.</p>
                 </div>
             </div>
         </div>
-        <div class="row our-offer-items less-carousel">
-            <!-- Single Item -->
-            <div class="col-md-4 col-sm-6 equal-height">
-                <div class="item">
-                    <i class="fas fa-building"></i>
-                    <h4>Corporate Events</h4>
-                    <p>
-                        We can handle of all the details for your Corporate Luncheon, Company Party, Board Meeting, Gala
-                        night, Annual General Meetings e.t.c! </p>
+
+        <!-- Social Events -->
+        <div class="col-md-4 col-sm-6">
+            <div class="card h-100 shadow-sm border-0 service-card">
+                <div class="card-body text-center">
+                    <i class="fas fa-glass-cheers fa-3x text-primary mb-3"></i>
+                    <h4 class="fw-semibold text-primary">Social Events</h4>
+                    <p class="text-muted">You bring the party, we’ll bring the feast! Our exquisite catering ensures
+                        your celebration is unforgettable. 🎉🍽️</p>
                 </div>
             </div>
-            <!-- End Single Item -->
+        </div>
 
-            <!-- Single Item -->
-            <div class="col-md-4 col-sm-6 equal-height">
-                <div class="item">
-                    <i class="fas fa-glass-cheers"></i>
-                    <h4>Social Events</h4>
-                    <p>
-                        You Bring the Party, We’ll Bring the Feast! We’ll ensure your
-                        celebration is unforgettable with our exquisite catering. 🎉🍽️
+        <!-- Canteen Management -->
+        <div class="col-md-4 col-sm-6">
+            <div class="card h-100 shadow-sm border-0 service-card">
+                <div class="card-body text-center">
+                    <i class="fas fa-cash-register fa-3x text-primary mb-3"></i>
+                    <h4 class="fw-semibold text-primary">Canteen Management</h4>
+                    <p class="text-muted">Let DTC manage your canteen operations, keeping employees rejuvenated while
+                        cutting overheads. 🌟🍽️</p>
                 </div>
             </div>
-            <!-- End Single Item -->
+        </div>
 
-            <!-- Single Item -->
-            <div class="col-md-4 col-sm-6 equal-height">
-                <div class="item">
-                    <i class="fas fa-cash-register"></i>
-                    <h4>Canteen Management</h4>
-                    <p>
-                        Let DTC manage your canteen operations. We’ll keep your
-                        employees rejuvenated while cutting overheads.🌟🍽️ </p>
+        <!-- Staff Breakfast & Lunch -->
+        <div class="col-md-4 col-sm-6">
+            <div class="card h-100 shadow-sm border-0 service-card">
+                <div class="card-body text-center">
+                    <i class="fas fa-mug-hot fa-3x text-primary mb-3"></i>
+                    <h4 class="fw-semibold text-primary">Staff Breakfast & Lunch</h4>
+                    <p class="text-muted">Daily meals to boost engagement, productivity, and camaraderie—because a
+                        well-fed team is a happy team! 🚀🍽️</p>
                 </div>
             </div>
-            <!-- End Single Item -->
+        </div>
 
-            <!-- Single Item -->
-            <div class="col-md-4 col-sm-6 equal-height">
-                <div class="item">
-                    <i class="fas fa-mug-hot"></i>
-                    <h4>Staff Breakfast & Lunch</h4>
-                    <p>
-                        Got a lot on your plate? So do we! 🍽️
-
-                        Daily meals boost engagement, productivity, and camaraderie.🚀
-                    </p>
+        <!-- Wedding Catering -->
+        <div class="col-md-4 col-sm-6">
+            <div class="card h-100 shadow-sm border-0 service-card">
+                <div class="card-body text-center">
+                    <i class="fas fa-ring fa-3x text-primary mb-3"></i>
+                    <h4 class="fw-semibold text-primary">Wedding Catering</h4>
+                    <p class="text-muted">Tailored menus to elevate your special day with exquisite flavors and
+                        impeccable service. 💍🍽️</p>
                 </div>
             </div>
-            <!-- End Single Item -->
+        </div>
 
-            <!-- Single Item -->
-            <div class="col-md-4 col-sm-6 equal-height">
-                <div class="item">
-                    <i class="fas fa-ring"></i>
-                    <h4>Wedding Catering</h4>
-                    <p>
-                        Tailored menus for your special day. Elevate Your Special Day with Exquisite Wedding Catering!”
-                        💍🍽️</p>
+        <!-- Home Delivery -->
+        <div class="col-md-4 col-sm-6">
+            <div class="card h-100 shadow-sm border-0 service-card">
+                <div class="card-body text-center">
+                    <i class="fas fa-shipping-fast fa-3x text-primary mb-3"></i>
+                    <h4 class="fw-semibold text-primary">Home Delivery</h4>
+                    <p class="text-muted">From our kitchen to your doorstep—savor the convenience of home-delivered
+                        deliciousness! 🚚🍽️</p>
                 </div>
             </div>
-            <!-- End Single Item -->
-
-            <!-- Single Item -->
-            <div class="col-md-4 col-sm-6 equal-height">
-                <div class="item">
-                    <i class="fas fa-shipping-fast"></i>
-                    <h4>Home Delivery</h4>
-                    <p>
-                        From Our Kitchen to Your Doorstep: Savor the Convenience of Home-Delivered Deliciousness!” 🚚🍽️
-                    </p>
-                </div>
-            </div>
-            <!-- End Single Item -->
         </div>
     </div>
 </section>
+
+<!-- Call to Action -->
+<section class="bg-light py-5 text-center">
+    <div class="container">
+        <h3 class="fw-bold text-primary">Ready to Elevate Your Event?</h3>
+        <p class="lead mb-4">Contact us today to customize your catering experience!</p>
+        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Get Started</a>
+    </div>
+</section>
+
+<style>
+    /* Header Styling */
+    .py-5 {
+        background-size: 200% 200%;
+        animation: gradientShift 10s ease infinite;
+    }
+
+    @keyframes gradientShift {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    /* Service Card Styling */
+    .service-card {
+        border-radius: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .service-card i {
+        transition: color 0.3s ease;
+    }
+
+    .service-card:hover i {
+        color: #f8c107 !important;
+    }
+
+    /* Text and Button Styling */
+    .text-primary {
+        color: #db9909 !important;
+    }
+
+    .btn-primary {
+        background-color: #db9909;
+        border-color: #db9909;
+    }
+
+    .btn-primary:hover {
+        background-color: #f8c107;
+        border-color: #f8c107;
+    }
+</style>
+
+<!-- Include Animate.css for animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
 {% endblock %}

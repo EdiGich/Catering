@@ -1,49 +1,127 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<div class="container mt-5 mb-5">
-    <div class="bg-light p-4 border rounded">
-        <H2 class="text-center mb-4">DTC TERMS & CONDITIONS
-        </H2>
-        <p class="text-center font-italic">"Your satisfaction is our joy"</p>
 
-        <h3>1. Event Requirements</h3>
-        <p>Delicious Tumaini Caterers reserves the right to maintain the originally agreed pricing, regardless of any
-            reduction in the actual number of attendees present at the event.</p>
-
-        <h3>2. Liability Disclaimer for Exceeding Attendee Limits</h3>
-        <p>If the number of attendees exceeds the originally specified in contract and some of the food depletes before
-            all are served, we are not to be held liable.</p>
-
-        <h3>3. Validity / Final Arrangement</h3>
-        <p>Final confirmation and adjustments on the number of attendees must be provided at least 2 working days in
-            advance.</p>
-
-        <h3>4. Deposit / Balance of Payment</h3>
-        <p>A 70% deposit is required of the total estimated amount upon confirmation of the event. The balance of total
-            payment shall be made two days before the event date. Your final arrangement on the
-            number of persons / tables attending / for this function must be given to us in writing 48 HOURS (2 days)
-            before the commencement of the function together with the balance of payment. Payment for other
-            miscellaneous charges can be made to us after the function.</p>
-        <p>For your information, the payment can be made either by Cash, Cheque or direct ank transfer in favor of
-            DELICIOUS TUMAINI CATERERS.</p>
-
-        <h3>4. Cancellation Policy</h3>
-        <p>Any cancellation of reservation must be in writing to the management at least 48 HOURS (2 days) prior to the
-            date of function. No refund will be entertained except for postponement of function date (duration 2
-            months). If a booking is canceled with less than 48 HOURS (2 days) notice prior to the date of function, the
-            total deposit shall be forfeited.</p>
-        <p>Amendments: All amendments must be conveyed in writing at least 48 hours prior to your function.</p>
-
-        <h3>5. Authorized Signatory</h3>
-        <p>To ensure a seamless catering experience, please be advised that additional charges may apply during your
-            event. We request a list of individuals authorized to approve charges to the main account. Only those
-            specified will have the authority to authorize expenses. Thank you for your cooperation.</p>
-
-        <h3>6. Timeliness and Consumption of Food</h3>
-        <p>Food will be delivered on time and should be consumed within 1.5 hours of arrival. If we experience a delay
-            beyond the agreed-upon time, we will notify you as soon as possible. In such cases, no overtime fee will
-            apply. However, if the food is not consumed within the specified timeframe, we will not be liable for any
-            issues related to quality. Thank you for your understanding..</p>
+<!-- Header Section -->
+<section class="position-relative text-white hero-about py-5">
+    <div class="overlay position-absolute top-0 start-0 w-100 h-10" style="background: rgba(0, 0, 0, 0.6);"></div>
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold animate__animated animate__fadeInDown">Terms & Conditions</h1>
+        <p class="lead italic animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">"Your Satisfaction is
+            Our Joy"</p>
     </div>
-</div>
+</section>
+
+<!-- Terms Content -->
+<section class="container my-5">
+    <div class="card shadow-sm border-0 p-4 bg-light">
+        <div class="card-body">
+            <h2 class="fw-bold text-primary text-center mb-5">Delicious Tumaini Caterers (DTC) Terms & Conditions</h2>
+
+            <div class="terms-section mb-4">
+                <h3 class="fw-semibold text-primary"><i class="fas fa-list-alt me-2"></i> 1. Event Requirements</h3>
+                <p>Delicious Tumaini Caterers reserves the right to maintain the originally agreed pricing, regardless
+                    of any reduction in the actual number of attendees present at the event.</p>
+            </div>
+
+            <div class="terms-section mb-4">
+                <h3 class="fw-semibold text-primary"><i class="fas fa-users me-2"></i> 2. Liability Disclaimer for
+                    Exceeding Attendee Limits</h3>
+                <p>If the number of attendees exceeds the originally specified in the contract and some of the food
+                    depletes before all are served, we are not to be held liable.</p>
+            </div>
+
+            <div class="terms-section mb-4">
+                <h3 class="fw-semibold text-primary"><i class="fas fa-check-circle me-2"></i> 3. Validity / Final
+                    Arrangement</h3>
+                <p>Final confirmation and adjustments on the number of attendees must be provided at least 2 working
+                    days in advance.</p>
+            </div>
+
+            <div class="terms-section mb-4">
+                <h3 class="fw-semibold text-primary"><i class="fas fa-money-bill-wave me-2"></i> 4. Deposit / Balance of
+                    Payment</h3>
+                <p>A 70% deposit is required of the total estimated amount upon confirmation of the event. The balance
+                    of total payment shall be made two days before the event date. Your final arrangement on the number
+                    of persons/tables attending this function must be given to us in writing 48 HOURS (2 days) before
+                    the commencement of the function, together with the balance of payment. Payment for other
+                    miscellaneous charges can be made to us after the function.</p>
+                <p>For your convenience, payments can be made via Cash, Cheque, or direct bank transfer in favor of
+                    <strong>DELICIOUS TUMAINI CATERERS</strong>.
+                </p>
+            </div>
+
+            <div class="terms-section mb-4">
+                <h3 class="fw-semibold text-primary"><i class="fas fa-times-circle me-2"></i> 5. Cancellation Policy
+                </h3>
+                <p>Any cancellation of reservation must be in writing to the management at least 48 HOURS (2 days) prior
+                    to the date of the function. No refund will be entertained except for postponement of the function
+                    date (within 2 months). If a booking is canceled with less than 48 HOURS (2 days) notice prior to
+                    the date of the function, the total deposit shall be forfeited.</p>
+                <p><strong>Amendments:</strong> All amendments must be conveyed in writing at least 48 hours prior to
+                    your function.</p>
+            </div>
+
+            <div class="terms-section mb-4">
+                <h3 class="fw-semibold text-primary"><i class="fas fa-user-check me-2"></i> 6. Authorized Signatory</h3>
+                <p>To ensure a seamless catering experience, please be advised that additional charges may apply during
+                    your event. We request a list of individuals authorized to approve charges to the main account. Only
+                    those specified will have the authority to authorize expenses. Thank you for your cooperation.</p>
+            </div>
+
+            <div class="terms-section mb-4">
+                <h3 class="fw-semibold text-primary"><i class="fas fa-clock me-2"></i> 7. Timeliness and Consumption of
+                    Food</h3>
+                <p>Food will be delivered on time and should be consumed within 1.5 hours of arrival. If we experience a
+                    delay beyond the agreed-upon time, we will notify you as soon as possible. In such cases, no
+                    overtime fee will apply. However, if the food is not consumed within the specified timeframe, we
+                    will not be liable for any issues related to quality. Thank you for your understanding.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Card and Terms Styling */
+    .card {
+        border-radius: 15px;
+        transition: box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .terms-section {
+        padding-left: 20px;
+        border-left: 3px solid #db9909;
+    }
+
+    .terms-section h3 {
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+    }
+
+    .terms-section p {
+        line-height: 1.6;
+        color: #555;
+    }
+
+    .terms-section strong {
+        color: #333;
+    }
+
+    /* Text Colors */
+    .text-primary {
+        color: #db9909 !important;
+    }
+
+    .text-warning {
+        color: #f8c107 !important;
+    }
+</style>
+
+<!-- Include Animate.css for animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
 {% endblock %}

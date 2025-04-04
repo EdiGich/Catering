@@ -1,44 +1,145 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<style>
-    .zoom-hover {
-        transition: transform 0.3s ease;
-    }
 
-    .zoom-hover:hover {
-        transform: scale(1.4);
-    }
-</style>
 <!-- Hero Section -->
-<div class="hero-about">
-    <div class="overlay d-flex flex-column justify-content-center align-items-center text-center">
-        <h1 class="text-white mb-4">Our Menu Items</h1>
+<section class="hero-about position-relative text-white">
+    <div class="overlay position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.5);"></div>
+    <div
+        class="container d-flex flex-column justify-content-center align-items-center text-center h-100 position-relative">
+        <h1 class="display-3 fw-bold animate__animated animate__fadeInDown">Our Sample Menus</h1>
+        <p class="lead animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">Savor the Flavors of DTC’s
+            Culinary Creations</p>
     </div>
-</div>
+</section>
 
-<div class="container my-5">
-    <div class="row">
-        <div class="col-md-6">
-            <ul class="list-group shadow">
+<!-- Menu Section -->
+<section class="container my-5">
+    <div class="row g-4">
+        <!-- Menu List -->
+        <div class="col-md-5 animate__animated animate__fadeInLeft">
+            <h2 class="fw-bold text-primary mb-4">Menu Highlights</h2>
+            <div class="list-group shadow-sm rounded">
                 {% for item in menu_items %}
-                <li class="list-group-item">{{ item.name }}</li>
+                <div class="list-group-item d-flex justify-content-between align-items-center py-3">
+                    <span class="fw-semibold">{{ item.name }}</span>
+                    {% if item.price %}
+                    <span class="badge bg-warning text-dark rounded-pill">KSh {{ item.price }}</span>
+                    {% endif %}
+                </div>
+                {% empty %}
+                <div class="list-group-item text-muted">No menu items available yet.</div>
                 {% endfor %}
-            </ul>
+            </div>
         </div>
-        <div class="col-md-6">
-            <div class="row">
+
+        <!-- Menu Images -->
+        <div class="col-md-7 animate__animated animate__fadeInRight" style="animation-delay: 0.2s;">
+            <h2 class="fw-bold text-primary mb-4 text-center">A Taste of Our Dishes</h2>
+            <div class="row justify-content-center">
                 {% for item in menu_items %}
                 {% if item.image %}
-                <div class="col-md-4 mb-4">
-                    <img src="{{ item.image.url }}" alt="{{ item.name }}"
-                        class="img-fluid rounded-circle zoom-hover shadow p-1 mb-1 bg-body"
-                        style="width: 13vh; height: 13vh; object-fit: cover;">
-                    <p class="text-center">{{ item.name }}</p>
+                <div class="col-6 col-md-4 mb-4">
+                    <div class="card border-0 shadow-sm menu-card h-100">
+                        <div class="card-img-top position-relative overflow-hidden" style="height: 150px;">
+                            <img src="{{ item.image.url }}" alt="{{ item.name }}"
+                                class="img-fluid w-100 h-100 object-fit-cover zoom-hover">
+                        </div>
+                        <div class="card-body text-center p-2">
+                            <h6 class="card-title fw-semibold">{{ item.name }}</h6>
+                            {% if item.description %}
+                            <p class="card-text small text-muted">{{ item.description|truncatewords:10 }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
                 {% endif %}
+                {% empty %}
+                <div class="col-12 text-center text-muted">No images to display yet.</div>
                 {% endfor %}
             </div>
         </div>
     </div>
-</div>
+</section>
+
+<!-- Call to Action -->
+<section class="bg-light py-5 text-center">
+    <div class="container">
+        <h3 class="fw-bold text-warning">Hungry for More?</h3>
+        <p class="lead mb-4">Contact us to explore our full menu or customize your next event!</p>
+        <a href="{% url 'contact' %}" class="btn btn-primary btn-lg">Get in Touch</a>
+    </div>
+</section>
+
+<style>
+    /* Hero Animation */
+    .hero-about {
+        animation: backgroundFade 8s infinite;
+    }
+
+    @keyframes backgroundFade {
+
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.95;
+        }
+    }
+
+    /* Menu Card Styling */
+    .menu-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    .menu-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .zoom-hover {
+        transition: transform 0.4s ease;
+    }
+
+    .zoom-hover:hover {
+        transform: scale(1.2);
+    }
+
+    /* List Group Styling */
+    .list-group-item {
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    .list-group-item:last-child {
+        border-bottom: none;
+    }
+
+    /* Text Colors */
+    .text-primary {
+        color: #db9909 !important;
+    }
+
+    .text-warning {
+        color: #f8c107 !important;
+    }
+
+    .btn-primary {
+        background-color: #db9909;
+        border-color: #db9909;
+    }
+
+    .btn-primary:hover {
+        background-color: #f8c107;
+        border-color: #f8c107;
+    }
+</style>
+
+<!-- Include Animate.css for animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
 {% endblock %}

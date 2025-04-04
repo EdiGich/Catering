@@ -1,70 +1,119 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-<div class="container my-5">
-    <!-- Page Header -->
-    <div class="text-center mb-4">
-        <h1 class="display-4">Events & Latest News</h1>
-        <p class="lead">Stay updated with our latest happenings and announcements.</p>
-    </div>
 
+<!-- Header Section -->
+<section class="hero-about position-relative text-white py-5">
+    <div class="overlay position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.5);"></div>
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold animate__animated animate__fadeInDown">Events & Latest News</h1>
+        <p class="lead animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">Stay in the Loop with DTC’s
+            Happenings</p>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="container my-5">
     <!-- Events Section -->
     <div class="mb-5">
-        <h2 class="mb-3">Events</h2>
-        <div class="row">
+        <h2 class="fw-bold text-primary mb-4 animate__animated animate__fadeInLeft">Upcoming Events</h2>
+        <div class="row g-4 animate__animated animate__fadeInDown">
             {% for event in events %}
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="{{ event.image.url }}" class="card-img-top" alt="{{ event.title }}">
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm event-card">
+                    <div class="card-img-top position-relative" style="height: 50%; overflow: hidden;">
+                        {% if event.image %}
+                        <img src="{{ event.image.url }}" class="img-fluid w-100 h-100 object-fit-cover"
+                            alt="{{ event.title }}">
+                        {% else %}
+                        <div class="d-flex justify-content-center align-items-center w-100 h-100 bg-light">
+                            <i class="fas fa-calendar-day fa-5x text-muted"></i>
+                        </div>
+                        {% endif %}
+                    </div>
                     <div class="card-body">
-                        <h5 class="card-title">{{ event.title }}</h5>
-                        <p class="card-text">{{ event.description|truncatewords:20 }}</p>
+                        <h5 class="card-title fw-semibold text-primary">{{ event.title }}</h5>
+                        <p class="card-text text-muted">{{ event.description|truncatewords:20 }}</p>
                         <p class="text-muted small">
-                            <i class="fas fa-calendar-alt"></i>
-                            {{ event.date|date:"F j, Y" }}
-                            <br>
-                            <i class="fas fa-clock"></i>
-                            {{ event.time }}
+                            <i class="fas fa-calendar-alt me-2"></i>{{ event.date|date:"F j, Y" }}<br>
+                            <i class="fas fa-clock me-2"></i>{{ event.time }}
                         </p>
-                        <!-- <a href="{{ event.detail_url }}" class="btn btn-outline-primary btn-sm">
-                            Learn More
-                        </a> -->
                     </div>
                 </div>
             </div>
             {% empty %}
-            <p>No events are available at the moment.</p>
+            <div class="col-12 text-center text-muted animate__animated animate__fadeIn">
+                <p>No events are scheduled at the moment. Check back soon!</p>
+            </div>
             {% endfor %}
         </div>
     </div>
 
     <!-- Latest News Section -->
     <div>
-        <h2 class="mb-3">Our Latest News</h2>
-        <div class="row">
+        <h2 class="fw-bold text-primary mb-4 animate__animated animate__fadeInLeft">Our Latest News</h2>
+        <div class="row g-4 animate__animated animate__fadeInDown">
             {% for news in news_items %}
-            <div class="col-md-6 mb-4">
-                <div class="card h-100 shadow-sm">
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm news-card">
                     <div class="card-body">
-                        <h5 class="card-title">{{ news.title }}</h5>
-                        <p class="card-text">{{ news.content|truncatewords:30 }}</p>
+                        <h5 class="card-title fw-semibold text-warning">{{ news.title }}</h5>
+                        <p class="card-text text-muted">{{ news.content|truncatewords:30 }}</p>
                         <p class="text-muted small">
-                            <i class="fas fa-calendar-alt"></i>
-                            {{ news.date|date:"F j, Y" }}
-                            <br>
-                            <i class="fas fa-clock"></i>
-                            {{ news.time }}
+                            <i class="fas fa-calendar-alt me-2"></i>{{ news.date|date:"F j, Y" }}<br>
+                            <i class="fas fa-clock me-2"></i>{{ news.time }}
                         </p>
-                        <!-- <a href="{{ news.detail_url }}" class="btn btn-outline-secondary btn-sm">
-                            Read More
-                        </a> -->
                     </div>
                 </div>
             </div>
             {% empty %}
-            <p>No news updates are available at the moment.</p>
+            <div class="col-12 text-center text-muted animate__animated animate__fadeIn">
+                <p>No news updates available right now. Stay tuned!</p>
+            </div>
             {% endfor %}
         </div>
     </div>
-</div>
+</section>
+
+<style>
+    /* Card Styling */
+    .event-card,
+    .news-card {
+        border-radius: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
+    }
+
+    .event-card:hover,
+    .news-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .zoom-hover {
+        transition: transform 0.4s ease;
+    }
+
+    .zoom-hover:hover {
+        transform: scale(1.1);
+    }
+
+    /* Event Default Image */
+    .event-card .bg-light {
+        background-color: #f3861a !important;
+    }
+
+    /* Text Colors */
+    .text-primary {
+        color: #db9909 !important;
+    }
+
+    .text-warning {
+        color: #f8c107 !important;
+    }
+</style>
+
+<!-- Include Animate.css for animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
 {% endblock %}

@@ -2,78 +2,176 @@
 {% load static %}
 {% block content %}
 
-<!-- <div class="hero-about site-heading text-center">
-    <h4 class="mt-4">Contact Us</h4>
-    <h2>We are more than Happy to hear <span>From You</span></h2>
-</div> -->
-
-<div class="hero-about">
-    <div class="overlay d-flex flex-column justify-content-center align-items-center text-center">
-        <!-- <h1 class="text-white mb-4">About Us</h1> -->
-        <div class="site-heading text-center">
-            <h1 class="mt-4 text-white text-center">Contact Us</h1>
-            <h3 class="text-white">We Are More Than Happy To Hear <span>From You</span></h3>
-        </div>
+<!-- Hero Section -->
+<section class="hero-about position-relative text-white">
+    <div class="overlay position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.6);"></div>
+    <div
+        class="container d-flex flex-column justify-content-center align-items-center text-center h-100 position-relative">
+        <h1 class="display-4 fw-bold animate__animated animate__fadeInDown">Contact Us</h1>
+        <h3 class="lead fw-normal animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+            We’re Delighted to Hear <span class="text-warning">From You</span>
+        </h3>
     </div>
-</div>
+</section>
 
-<div class="container mt-5 mb-5">
-    <div class="row">
-        <div class=" col-md-6 card mx-auto shadow-sm" style="max-width: 600px;">
-            <div class="card-body">
-                {% if success %}
-                <div class="alert alert-success" id="success-alert" role="alert">
-                    Your message has been sent successfully!
-                </div>
-                {% endif %}
-                <h1 class="mt-4 text-center">Contact Us</h1>
-                <form method="post" action="{% url 'contact' %}">
-                    <!-- method="post": Specifies that the form data should be sent using the POST method, which is more secure than GET for transmitting data. -->
-                    <!-- Specifies the URL to which the form data should be submitted. -->
-
-                    {% csrf_token %}
-                    <!-- A security measure in Django to prevent Cross-Site Request Forgery (CSRF) attacks. -->
-                    <div class="form-group mb-3">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="phone">Phone Number</label>
-                        <input type="text" class="form-control" id="phone" name="phone" required>
-                    </div>
-                    <div class="form-group mb-4">
-                        <label for="message">Message</label>
-                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <div class="d-grid">
-                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+<!-- Contact Form and Info -->
+<section class="container my-5">
+    <div class="row g-5 align-items-stretch">
+        <!-- Contact Form -->
         <div class="col-md-6">
-            <div class="image-container">
-                <img src="{% static 'images/sample3.jpg' %}" alt="">
-                <div class="image-text">Reach out to us.</div>
+            <div class="card shadow-sm border-0 p-4">
+                <div class="card-body">
+                    <h2 class="fw-bold text-primary text-center mb-4">Send Us a Message</h2>
+                    {% if success %}
+                    <div class="alert alert-success alert-dismissible fade show" id="success-alert" role="alert">
+                        Your message has been sent successfully!
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endif %}
+                    <form method="post" action="{% url 'contact' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="form-label fw-semibold">Name <span
+                                    class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="name" name="name" required
+                                placeholder="Your Full Name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-semibold">Email <span
+                                    class="text-danger">*</span></label>
+                            <input type="email" class="form-control" id="email" name="email" required
+                                placeholder="you@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label fw-semibold">Phone Number <span
+                                    class="text-danger">*</span></label>
+                            <input type="tel" class="form-control" id="phone" name="phone" required
+                                placeholder="+254 700 000 000">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label fw-semibold">Message <span
+                                    class="text-danger">*</span></label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required
+                                placeholder="Tell us how we can assist you..."></textarea>
+                        </div>
+                        <div class="mb-4 form-check">
+                            <input type="checkbox" class="form-check-input" id="terms" name="terms" required>
+                            <label class="form-check-label" for="terms">
+                                I have read and agree to the <a href="{% url 'terms' %}" target="_blank"
+                                    class="text-primary fw-semibold">Terms and Conditions</a>
+                            </label>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 p-4 h-100">
+                <div class="card-body">
+                    <h2 class="fw-bold text-primary mb-4">Get in Touch</h2>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                            <span>Mombasa, Kenya</span>
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-phone-alt text-primary me-2"></i>
+                            <a href="tel:+254727777814" class="text-dark">+254 727 777 814</a>
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-envelope text-primary me-2"></i>
+                            <a href="mailto:info@tumainicaterers.co.ke" class="text-dark">info@tumainicaterers.co.ke</a>
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-clock text-primary me-2"></i>
+                            <span>Mon - Fri: 8:00 AM - 5:00 PM</span>
+                        </li>
+                    </ul>
+                    <div class="mt-4">
+                        <h5 class="fw-semibold">Follow Us</h5>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <a href="https://www.facebook.com/people/Delicious-Tumaini-Caterers/100066608650799/"
+                                    target="_blank" class="text-primary fs-4">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://wa.me/+254727777814" target="_blank" class="text-primary fs-4">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</section>
 
-
-</div>
 <style>
-    .site-heading h3 {
-        display: block;
-        font-weight: 700;
-        margin-bottom: 10px;
+    /* Hero Styling */
+    .hero-about {
+        animation: backgroundFade 8s infinite;
     }
 
-    .site-heading h3 span {
-        color: #FA6402;
+    @keyframes backgroundFade {
+
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.95;
+        }
+    }
+
+    /* Form and Card Styling */
+    .card {
+        border-radius: 15px;
+        transition: box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .btn-primary {
+        background-color: #db9909;
+        border-color: #db9909;
+    }
+
+    .btn-primary:hover {
+        background-color: #f8c107;
+        border-color: #f8c107;
+    }
+
+    .form-control:focus {
+        border-color: #db9909;
+        box-shadow: 0 0 0 0.2rem rgba(219, 153, 9, 0.25);
+    }
+
+    /* Text Colors */
+    .text-primary {
+        color: #db9909 !important;
+    }
+
+    .text-warning {
+        color: #f8c107 !important;
+    }
+
+    a.text-primary:hover {
+        color: #f8c107 !important;
     }
 </style>
+
+<!-- Include Animate.css for animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
 {% endblock %}

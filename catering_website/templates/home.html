@@ -1,39 +1,66 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
 <div class="bg-image">
     <div class="overlay d-flex flex-column justify-content-center align-items-center text-center">
-        <h1 class="text-white mb-4">HAVE A FUNCTION? WE'VE GOT THE CATERING.</h1>
-        <p class="text-white mb-4">Bringing a memorable delicacy to your event.</p>
-        <a href="{% url 'contact' %}" class="btn font-weight-bold py-2 px-4 transition"
+        <h1 class="text-white mb-4 animate__animated animate__fadeInDown">HAVE A FUNCTION? WE'VE GOT THE CATERING.</h1>
+        <p class="text-white mb-4 animate__animated animate__fadeInDown">Bringing a memorable delicacy to your event.
+        </p>
+        <a href="{% url 'contact' %}"
+            class="btn font-weight-bold py-2 px-4 transition animate__animated animate__fadeInDown"
             style="background-color: transparent; color: #FA6402; border: 1px solid #FA6402;"
             onmouseover="this.style.backgroundColor='#FA6402'; this.style.color='white';"
             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#FA6402';">Enquire
             Now</a>
     </div>
 </div>
-<div class="container my-5">
-    <div class="row">
-        <div class="col-md-6 mb-4">
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/K5-Lt8pBQZA"
+
+<!-- Intro Section -->
+<section class="container my-5">
+    <div class="row g-4 align-items-center">
+        <div class="col-md-6 animate__animated animate__fadeInLeft">
+            <div class="ratio ratio-16x9 shadow-sm rounded">
+                <iframe src="https://www.youtube.com/embed/K5-Lt8pBQZA"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen></iframe>
             </div>
         </div>
-        <div class="col-md-6 d-flex align-items-center">
-            <div>
-                <h2>Experience the Best Catering Services</h2>
-                <p>Delicious Tumaini Caterers brings you the finest catering services for all occasions. Whether it's a
-                    wedding, corporate event, or social gathering, we tailor our menus to suit your needs and ensure
-                    your event is a success.</p>
-                <p>Our dedicated team of chefs and staff are committed to delivering exceptional food and service,
-                    making your event unforgettable.</p>
-            </div>
+        <div class="col-md-6 animate__animated animate__fadeInRight" style="animation-delay: 0.2s;">
+            <h2 class="fw-bold text-primary mb-3">Experience the Best Catering Services</h2>
+            <p class="lead">Delicious Tumaini Caterers brings you the finest catering services for all occasions.
+                Whether it’s a wedding, corporate event, or social gathering, we tailor our menus to suit your needs and
+                ensure your event is a resounding success.</p>
+            <p>Our passionate team of chefs and staff is committed to delivering exceptional food and service, making
+                every moment unforgettable.</p>
+            <a href="{% url 'about' %}" class="btn btn-link text-primary fw-semibold p-0">Learn More About Us <i
+                    class="fas fa-arrow-right ms-2"></i></a>
         </div>
     </div>
-</div>
-<style>
+</section>
 
+<style>
+    /* Video and Text Section */
+    .ratio iframe {
+        border: none;
+        border-radius: 10px;
+    }
+
+    .text-primary {
+        color: #db9909 !important;
+    }
+
+    .btn-link {
+        text-decoration: none;
+    }
+
+    .btn-link:hover {
+        text-decoration: underline;
+        color: #f8c107 !important;
+    }
 </style>
+
+<!-- Include Animate.css for animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
 {% endblock %}
