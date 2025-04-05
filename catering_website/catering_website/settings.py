@@ -28,8 +28,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 #       DEBUG = env.bool('DEBUG', default=True)
 
-# ALLOWED_HOSTS = ['15bf-41-215-141-174.ngrok-free.app']
-# ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
 
 # Application definition
@@ -86,7 +84,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],  # Ensure Redis is running on this host and port
+            "hosts": [('127.0.0.1', 6379)],  
         },
     },
 }
@@ -106,7 +104,6 @@ REST_FRAMEWORK = {
     ],
 }
 
-# Simple JWT settings (optional customization)
 from datetime import timedelta
 
 SIMPLE_JWT = {
@@ -166,31 +163,21 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:3000",  # Your Flutter web URL
+#     "http://localhost:3000",  # Flutter web URL
 # ]
-CORS_ALLOW_ALL_ORIGINS = True  # For development; restrict this for production
+CORS_ALLOW_ALL_ORIGINS = False  # For development; restrict this for production
 
 
-# Email settings
-#       EMAIL_BACKEND = env('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
-#       EMAIL_HOST = env('EMAIL_HOST', default='smtp.gmail.com')
-#       EMAIL_PORT = env('EMAIL_PORT', default=587)
-#       EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS', default=True)
+from decouple import config, Csv # type: ignore
 
-#       EMAIL_HOST_USER = env('EMAIL_HOST_USER') 
-#       EMAIL_HOST_PASSWORD =  env('EMAIL_HOST_PASSWORD')
-#       DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
+SECRET_KEY=config('SECRET_KEY')
+ALLOWED_HOSTS=config('ALLOWED_HOSTS', cast=Csv())
+DEBUG=config('DEBUG', default=True, cast=bool)
 
-#will delete these after environ starts working
-SECRET_KEY='django-insecure-u(tgga&l^2^@pz89ez@rgz7zxg9=#!+#@!cqr!jzgms*f+--6s'
-ALLOWED_HOSTS=['127.0.0.1', 'localhost', '192.168.0.105', '10.0.2.2','CodeNaican.pythonanywhere.com','dt-caterers.onrender.com']
-DEBUG=True
-
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'noreplydtcaterers@gmail.com'  # Your new Gmail address
-EMAIL_HOST_PASSWORD = 'jlkl sxvs xhmv sxhm' # The password for this account
-DEFAULT_FROM_EMAIL = 'noreplydtcaterers@gmail.com'
+EMAIL_BACKEND = config('EMAIL_BACKEND')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
