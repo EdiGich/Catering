@@ -169,7 +169,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # CORS_ALLOWED_ORIGINS = [
 #     "http://localhost:3000",  # Flutter web URL
 # ]
-CORS_ALLOW_ALL_ORIGINS = False  # For development; restrict this for production
+CORS_ALLOW_ALL_ORIGINS = True  # For development; restrict this for production
 
 
 from decouple import config, Csv # type: ignore
