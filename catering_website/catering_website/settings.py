@@ -31,11 +31,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Application definition
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 INSTALLED_APPS = [
     'main',
     'channels',
-    'django.contrib.admin',
+    'django.contrib.admin' if DEBUG else '',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -170,7 +171,8 @@ CORS_ALLOW_ALL_ORIGINS = True  # For development; restrict this for production
 
 SECRET_KEY=config('SECRET_KEY')
 ALLOWED_HOSTS=config('ALLOWED_HOSTS', cast=Csv())
-DEBUG=config('DEBUG', default=True, cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
+
 
 EMAIL_BACKEND = config('EMAIL_BACKEND')
 EMAIL_HOST = config('EMAIL_HOST')

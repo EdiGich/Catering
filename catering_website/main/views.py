@@ -39,6 +39,9 @@ def news_events(request):
         'news_items': news_items
     })
 
+def handler404(request, exception):
+    return render(request, '404.html', status=404)
+
 def sample_menus(request):
     menu_items = MenuItem.objects.all()
     return render(request, 'sample_menus.html', {'menu_items': menu_items})
