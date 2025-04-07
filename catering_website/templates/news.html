@@ -20,8 +20,8 @@
         <div class="row g-4 animate__animated animate__fadeInDown">
             {% for event in events %}
             <div class="col-md-6 col-lg-4">
-                <div class="card h-100 shadow-sm event-card">
-                    <div class="card-img-top position-relative" style="height: 50%; overflow: hidden;">
+                <div class="card shadow-sm event-card">
+                    <div class="card-img-top position-relative">
                         {% if event.image %}
                         <img src="{{ event.image.url }}" class="img-fluid w-100 h-50 object-fit-cover"
                             alt="{{ event.title }}">
