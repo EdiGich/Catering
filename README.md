@@ -101,7 +101,17 @@ python manage.py collectstatic --noinput
 ### Flutter Admin App
 
 The site integrates with a Flutter-based content management app for admins. Below are screenshots of the app for reference;
-[Screenshot 1: Dashboard] (To be added)
+[Screenshot 1: Login Page]
+![Login Page Interface](FlutterDTC_App_Images\image.png)
+
+[Screenshot 2: DTC Content Management App Dashboard.]
+![App dashboard](FlutterDTC_App_Images\DTC_AppDashboard.jpg)
+
+[Screenshot 2: Sample error message.]
+![alt text](FlutterDTC_App_Images\image-2.png)
+
+[Screenshot 3: Sample error page.]
+![Sample error page](FlutterDTC_App_Images\image-1.png)
 
 ### License
 
