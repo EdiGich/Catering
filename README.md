@@ -1,87 +1,116 @@
 # Catering Website (Django)
 
-This is a **Django-based catering website** that provides an online platform for a catering company to showcase services, manage a gallery, and receive customer inquiries. The site supports **dynamic content management** through an admin Flutter app.
+This is a **Django-based catering website** designed as an online platform for a catering company to showcase services, manage a gallery, and handle customer inquiries. It integrates with a **Flutter admin app** for dynamic content management.
 
 ## Features
 
-- **Home Page** – Overview of the catering business.
-- **About Page** – Details about the company and its values.
-- **Services Page** – Information on corporate catering, social events, and canteen management.
-- **Sample Menus** – Example menus offered by the company.
-- **Gallery** – Displays images of past catering events.
-- **Contact Us** – Form for customers to send inquiries.
-- **Admin Content Management** – Allows admins to update content via a Flutter app.
-- **WebSocket Notifications** – Sends real-time notifications to the admin app when a new message is received.
+- **Home Page**: Overview of the catering business.
+- **About Page**: Information about the company and its mission.
+- **Services Page**: Details on corporate catering, social events, and canteen management.
+- **Sample Menus**: Example menus offered by the company.
+- **Gallery**: Showcase of images from past catering events.
+- **Contact Us**: Form for customers to submit inquiries.
+- **Admin Content Management**: Update site content via a Flutter admin app.
+- **WebSocket Notifications**: Real-time notifications to the admin app for new messages.
 
 ## Tech Stack
 
-- **Backend:** Django, Django REST Framework
-- **Frontend:** HTML, Bootstrap, CSS
-- **Database:** PostgreSQL (or SQLite for local development)
-- **Authentication:** Django authentication system
-- **Hosting:** Render
-- **WebSockets:** Django Channels for real-time notifications
+- **Backend**: Django, Django REST Framework
+- **Frontend**: HTML, Bootstrap, CSS
+- **Database**: SQLite (local development), configurable for PostgreSQL
+- **Authentication**: Django authentication system
+- **Hosting**: PythonAnywhere
+- **WebSockets**: Django Channels for real-time notifications
+
+## Live Deployment
+
+The project is hosted on PythonAnywhere at:  
+[**DeliciousTumainiCaterers.pythonanywhere.com**](https://delicioustumainicaterers.pythonanywhere.com/)
 
 ## Installation & Setup
 
 ### Prerequisites
 
-Ensure you have the following installed:
-
-- Python 3
+- Python 3.10+
 - Pip
 - Virtualenv
 
 ### Clone the Repository
 
 ```sh
-git clone https://github.com/edigich/catering.git
-cd catering_website
+git clone https://github.com/EdiGich/Catering.git
+cd Catering/catering_website
 ```
 
-### Create a Virtual Environment
+### Create a virtual environment
 
 ```sh
 python -m venv venv
-source venv/bin/activate
-# On Windows, use `venv\Scripts\activate`
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-### Install Dependencies
+### Install dependencies
 
 ```sh
 pip install -r requirements.txt
 ```
 
-### Apply Migrations
+### Configure environment variables
+
+```sh
+SECRET_KEY=your-key
+ALLOWED_HOSTS=list-your-hosts-here,127.0.0.1
+DEBUG=True
+#Contact form variables in the .env.
+EMAIL_BACKEND=
+EMAIL_HOST=
+EMAIL_PORT=
+EMAIL_USE_TLS=
+EMAIL_HOST_USER=
+EMAIL_HOST_PASSWORD=
+DEFAULT_FROM_EMAIL=
+
+```
+
+### Apply migrations
 
 ```sh
 python manage.py migrate
 ```
 
-### Create a Superuser
+### Create a superuser
 
 ```sh
 python manage.py createsuperuser
 ```
 
-### Run the Development Server
+### run the development server
 
 ```sh
 python manage.py runserver
 ```
 
-### Collect Static Files
+### Collect static files
 
 ```sh
 python manage.py collectstatic --noinput
 ```
 
-## License
+# `noinput` command overwrites any existing files in STATIC_ROOT without confirmation.
 
-This project is open-source under the **MIT License**.
+### Flutter Admin App
 
-## Author
+The site integrates with a Flutter-based content management app for admins. Below are screenshots of the app for reference;
+[Screenshot 1: Dashboard] (To be added)
 
-Edwin
-Contact: edwingichira801@gmail.com
+### License
+
+This project is licensed under the MIT License.
+
+### Author
+
+**Edwin Gichira**
+
+Email: [edwingichira801@gmail.com](mailto:edwingichira801@gmail.com)
+
+GitHub: [EdiGich](http://github.com/EdiGich)
