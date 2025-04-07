@@ -9,12 +9,8 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-import os
-from dotenv import load_dotenv
-load_dotenv()
-
-import environ
 from pathlib import Path
+from decouple import config, Csv  # type: ignore
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -171,8 +167,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # ]
 CORS_ALLOW_ALL_ORIGINS = True  # For development; restrict this for production
 
-
-from decouple import config, Csv # type: ignore
 
 SECRET_KEY=config('SECRET_KEY')
 ALLOWED_HOSTS=config('ALLOWED_HOSTS', cast=Csv())
