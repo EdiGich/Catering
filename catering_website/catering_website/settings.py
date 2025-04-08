@@ -31,12 +31,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Application definition
-DEBUG = config('DEBUG', default=True, cast=bool)
 
 INSTALLED_APPS = [
     'main',
     'channels',
-    'django.contrib.admin' if DEBUG else '',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -50,6 +49,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'main.middleware.Custom404Middleware',  # Custom middleware for 404 handling
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
