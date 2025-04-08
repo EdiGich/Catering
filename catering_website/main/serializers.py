@@ -36,7 +36,7 @@ class MenuItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = MenuItem
-        fields = ['id', 'name', 'description', 'price', 'image_url']
+        fields = ['id', 'name', 'description', 'price', 'image', 'image_url']
 
     def get_image_url(self, obj):
         request = self.context.get('request')

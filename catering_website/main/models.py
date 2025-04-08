@@ -5,9 +5,9 @@ import os
 
 class MenuItem(models.Model):
     name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='menu_images/', null=True, blank=True)  # Add image field
     description = models.TextField(blank=True) 
     price = models.DecimalField(max_digits=10, decimal_places=2, blank=True)  
+    image = models.ImageField(upload_to='menu_images/', null=True, blank=True)
 
     
     def __str__(self):
