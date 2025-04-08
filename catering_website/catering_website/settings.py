@@ -49,7 +49,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'main.middleware.Custom404Middleware',  # Custom middleware for 404 handling
+    'main.middleware.Custom404Middleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -166,7 +166,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # CORS_ALLOWED_ORIGINS = [
 #     "http://localhost:3000",  # Flutter web URL
 # ]
-CORS_ALLOW_ALL_ORIGINS = True  # For development; restrict this for production
+CORS_ALLOW_ALL_ORIGINS = True  
 
 
 SECRET_KEY=config('SECRET_KEY')
