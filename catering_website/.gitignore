@@ -47,7 +47,6 @@ env/
 db.sqlite3
 
 # Static files (if using collectstatic)
-static/
 media/
 
 # Logs
