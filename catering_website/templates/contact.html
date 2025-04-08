@@ -28,13 +28,14 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                     {% endif %}
-                    <form method="post" action="{% url 'contact' %}">
+                    <form method="post" action="{% url 'contact' %}" onsubmit="return validateForm()">
                         {% csrf_token %}
                         <div class="mb-3">
                             <label for="name" class="form-label fw-semibold">Name <span
                                     class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="name" name="name" required
-                                placeholder="Your Full Name">
+                                placeholder="Your Full Name" pattern="[A-Za-z\s]+"
+                                title="Only letters and spaces allowed">
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label fw-semibold">Email <span
@@ -46,7 +47,8 @@
                             <label for="phone" class="form-label fw-semibold">Phone Number <span
                                     class="text-danger">*</span></label>
                             <input type="tel" class="form-control" id="phone" name="phone" required
-                                placeholder="+254 700 000 000">
+                                placeholder="+254 700 000 000" pattern="\+254\d{9}" maxlength="13"
+                                title="Format: +254 followed by 9 digits (e.g., +254700000000)">
                         </div>
                         <div class="mb-3">
                             <label for="message" class="form-label fw-semibold">Message <span
@@ -68,6 +70,25 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            function validateForm() {
+                const phone = document.getElementById('phone').value;
+                const name = document.getElementById('name').value;
+                const phonePattern = /^\+254\d{9}$/;
+                const namePattern = /^[A-Za-z\s]+$/;
+
+                if (!namePattern.test(name)) {
+                    alert('Name can only contain letters and spaces.');
+                    return false;
+                }
+                if (!phonePattern.test(phone)) {
+                    alert('Phone number must be in the format +254 followed by 9 digits (e.g., +254700000000).');
+                    return false;
+                }
+                return true;
+            }
+        </script>
 
         <!-- Contact Info -->
         <div class="col-md-6">
