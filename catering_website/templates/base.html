@@ -80,19 +80,19 @@
                         delightful experience for all guests.</p>
                 </div>
 
-                <div class="col-xs-6 col-md-3">
+                <div class="col-6 col-md-3 mt-4 mt-md-0">
                     <h6>Categories</h6>
                     <ul class="footer-links">
                         <li><a href="{% url 'gallery' %}">Corporate Catering</a></li>
                         <li><a href="{% url 'gallery' %}">Social Events</a></li>
                         <li><a href="{% url 'gallery' %}">Weddings</a></li>
-                        <li><a href="{% url 'gallery' %}">Company Canteen Management</a></li>
+                        <li><a href="{% url 'gallery' %}">Canteen Management</a></li>
                         <li><a href="{% url 'sample_menus' %}">Custom Menus</a></li>
                         <li><a href="{% url 'gallery' %}">Specialty Cuisine</a></li>
                     </ul>
                 </div>
 
-                <div class="col-xs-6 col-md-3">
+                <div class="col-6 col-md-3 mt-4 mt-md-0">
                     <h6>Quick Links</h6>
                     <ul class="footer-links">
                         <li><a href="{% url 'about' %}">About Us</a></li>
@@ -108,25 +108,35 @@
             </div>
             <hr>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-sm-6 col-xs-12">
-                    <p class="copyright-text">Copyright © 2025 All Rights Reserved
+        <div class="container copyright-statement">
+            <div class="row align-items-center">
+                <div class="col-md-8 col-sm-6">
+                    <p class="copyright-text mb-0">
+                        &copy; 2025 All Rights Reserved —
                         <a href="{% url 'home' %}">Delicious Tumaini Caterers (DTC)</a>.
                     </p>
                 </div>
 
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <ul class="social-icons">
-                        <li><a class="facebook"
+                <div class="col-md-4 col-sm-6 text-md-end mt-sm-0">
+                    <ul class="social-icons list-unstyled d-flex justify-content-md-end gap-3 mb-0">
+                        <li>
+                            <a class="facebook"
                                 href="https://www.facebook.com/people/Delicious-Tumaini-Caterers/100066608650799/"
-                                target="_blank"><i class="fab fa-facebook"></i></a></li>
-                        <li><a class="whatsapp" href="https://wa.me/+254727777814" target="_blank"><i
-                                    class="fab fa-whatsapp"></i></a></li>
+                                target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="whatsapp" href="https://wa.me/+254727777814" target="_blank"
+                                rel="noopener noreferrer">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
+
     </footer>
 
     <!-- Scripts -->
