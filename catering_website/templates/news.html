@@ -32,7 +32,7 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title fw-semibold text-primary">{{ event.title }}</h5>
-                        <p class="card-text text-muted">{{ event.description|truncatewords:20 }}</p>
+                        <p class="card-text text-muted">{{ event.description }}</p>
                         <p class="text-muted small">
                             <i class="fas fa-calendar-alt me-2"></i>{{ event.date|date:"F j, Y" }}<br>
                             <i class="fas fa-clock me-2"></i>{{ event.time }}
