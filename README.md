@@ -131,3 +131,4 @@ This project is licensed under the MIT License.
 Email: [edwingichira801@gmail.com](mailto:edwingichira801@gmail.com)
 
 GitHub: [EdiGich](http://github.com/EdiGich)
+LinkedIn : [Edwin Gichira](https://www.linkedin.com/in/edwin-gichira-9147a8213/)
