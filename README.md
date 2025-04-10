@@ -107,8 +107,8 @@ The site integrates with a Flutter-based content management app for admins. Belo
 |--------------------------------|----------------------------------------------------------|--------------------------------------------|---------------------------------------|
 | ![Login Page Interface](FlutterDTC_App_Images/image.png)| ![App Dashboard](FlutterDTC_App_Images/DTC_AppDashboard.jpg) |   ![Sample Error Message](FlutterDTC_App_Images/image-2.png) |   ![Sample Error Page](FlutterDTC_App_Images/image-1.png) |
 
- |- **Screenshot 5: Dark Mode and Light Mode Themes**  |
- |-----------------------------------------------------|------------------------------------|----------------------|-----------------------------------------|
+ |- **Screenshot 5: Dark Mode and Light Mode Themes**  |---|---|---|
+ |-----------------------------------------------------|---|---|---|
  | ![Dark Mode and Light Mode Themes 1](FlutterDTC_App_Images/image-8.png)  | ![Dark Mode and Light Mode Themes 2](FlutterDTC_App_Images/image-5.png) | ![Dark Mode and Light Mode Themes 3](FlutterDTC_App_Images/image-6.png) | ![Dark Mode and Light Mode Themes 4](FlutterDTC_App_Images/image-7.png) |
 ---
 ### License
