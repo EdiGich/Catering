@@ -101,24 +101,15 @@ python manage.py collectstatic --noinput
 ### Flutter Admin App
 
 The site integrates with a Flutter-based content management app for admins. Below are screenshots of the app for reference;
+#### Admin App Screenshots.
+|- **Screenshot 1: Login Page** | - **Screenshot 2: DTC Content Management App Dashboard**  |- **Screenshot 3: Sample Error Message**  | - **Screenshot 4: Sample Error Page** |
+| ![Login Page Interface](FlutterDTC_App_Images/image.png)| ![App Dashboard](FlutterDTC_App_Images/DTC_AppDashboard.jpg) |   ![Sample Error Message](FlutterDTC_App_Images/image-2.png) |   ![Sample Error Page](FlutterDTC_App_Images/image-1.png) |
 
-- **Screenshot 1: Login Page**  
-  ![Login Page Interface](FlutterDTC_App_Images/image.png)
-
-- **Screenshot 2: DTC Content Management App Dashboard**  
-  ![App Dashboard](FlutterDTC_App_Images/DTC_AppDashboard.jpg)
-
-- **Screenshot 3: Sample Error Message**  
-  ![Sample Error Message](FlutterDTC_App_Images/image-2.png)
-
-- **Screenshot 4: Sample Error Page**  
-  ![Sample Error Page](FlutterDTC_App_Images/image-1.png)
-
-- **Screenshot 5: Dark Mode and Light Mode Themes**  
-  ![Dark Mode and Light Mode Themes 1](FlutterDTC_App_Images/image-8.png)  
-  ![Dark Mode and Light Mode Themes 2](FlutterDTC_App_Images/image-5.png)  
-  ![Dark Mode and Light Mode Themes 3](FlutterDTC_App_Images/image-6.png)  
-  ![Dark Mode and Light Mode Themes 4](FlutterDTC_App_Images/image-7.png)
+ |- **Screenshot 5: Dark Mode and Light Mode Themes**  |
+ | ![Dark Mode and Light Mode Themes 1](FlutterDTC_App_Images/image-8.png) |  
+ | ![Dark Mode and Light Mode Themes 2](FlutterDTC_App_Images/image-5.png) |  
+ | ![Dark Mode and Light Mode Themes 3](FlutterDTC_App_Images/image-6.png) | 
+ | ![Dark Mode and Light Mode Themes 4](FlutterDTC_App_Images/image-7.png) |
 
 ### License
 
